@@ -25,7 +25,9 @@ label start:
     show boss serious close
     with dissolve
 
-    b "I want you to take good care of it and hire a really great coder for us."
+    b "I want you to take good care of it and sort a really great coder for us."
+    b "Whoever you pick will be working with you in your group."
+
 
     menu:
         m "Okay..."
