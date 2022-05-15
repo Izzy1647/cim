@@ -16,9 +16,12 @@ label interview1:
     with fadehold
     "Next day, 1pm"
 
+    $ isJoe = True
+
     # first interviewee character https://charactercreator.org/#skinColor=%23e5a073&irisColor=%23784421&hairColor=%231a1a1a&pupils=round&sex=m&body_head=square&ears=unplugged&nose=roman&emotion=surprise&shirt=kurta&shirtColor=%231F303F&pants=jeans_rolled&pantsColor=%23BAE0A8&vest=shawl_pointed&vestColor=%23BAE0A8&jacket=suit_open&jacketColor=%23BAE0A8&hair=buzzcut&facialhair=winnfield&earings=gold_rings
     show joe general at right
     with dissolve
+
 
     j "Hey I'm Joe... I'm here for the software engineer position."
     j "I assume I'm not at the wrong place??"
@@ -36,18 +39,35 @@ label interview1:
         "Start with a brief self introduction":
             jump introduction
         "Bring on Fizzbuzz!":
-            jump fizzbuzz
+            jump prefizzbuzz
 
-label fizzbuzz:
-    m "Let's solve a coding problem really fast, okay?"
-    show joe fear close at left
-    with dissolve
-    j "Ohh..."
-    j "Okay..."
-    j "Very stright forward though."
+label prefizzbuzz:
+    if isJoe:
+        m "Let's solve a coding problem really fast, okay?"
+        show joe fear close at left
+        with dissolve
+        j "Ohh..."
+        j "Okay..."
+        j "Very stright forward though."
+        j "What's it?"
 
-label introduction:
-    "introduction"
+        jump fizzbuzzcore
+
+label fizzbuzzcore:
+    if isJoe:
+        m "Check it out"
+        show fizzbuzz2 at topright
+        with dissolve
+        ""
+        j "Hmmmmm... yes, fizzbuzz..."
+        j "Give me a minute..."
+
+
+
+
+
+# label introduction:
+#     m "Why not start with a short self introduction?"
   
 
   
