@@ -9,6 +9,7 @@ label bedroom:
     "Or is it too simple..."
     "Or not? Damn..."
 
+# joe: he seems nervous but he actually does well on these questions
 label interview1:
     play music interview fadein 2.0
 
@@ -44,8 +45,10 @@ label interview1:
 label prefizzbuzz:
     if isJoe:
         m "Let's solve a coding problem really fast, okay?"
+
         show joe fear close at left
         with dissolve
+
         j "Ohh..."
         j "Okay..."
         j "Very stright forward though."
@@ -56,11 +59,48 @@ label prefizzbuzz:
 label fizzbuzzcore:
     if isJoe:
         m "Check it out"
-        show fizzbuzz2 at topright
+
+        show fizzbuzz2 at topleft
         with dissolve
+
         ""
+
         j "Hmmmmm... yes, fizzbuzz..."
         j "Give me a minute..."
+
+        "one minute passed..."
+        "two minutes passed..."
+
+        show joe struggling close at left
+        with dissolve
+
+        "three minutes passed..."
+
+        j "Hmmmmm..."
+
+        "four minutes passed..."
+        "five minutes passed..."
+
+        show joe excited close at left
+        with dissolve
+
+        ""
+
+        j "Yes! I got it! Check it out..."
+
+        show fizzbuzz sol joe at topright
+        with dissolve
+
+        "123"
+
+
+
+
+
+
+
+        
+
 
 
 

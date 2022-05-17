@@ -6,7 +6,7 @@
 define b = Character("Boss")
 define m = Character('Me', color="#c8c8ff")
 
-# the first candidate
+# the first candidate Joe
 define j = Character("Joe")
 
 # test customize character definition
