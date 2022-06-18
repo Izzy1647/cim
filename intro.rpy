@@ -6,7 +6,7 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    play music theme fadein 4.0
+    # play music theme fadein 4.0
 
     scene bg boss office
 
