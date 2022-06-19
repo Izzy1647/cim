@@ -41,14 +41,14 @@ label fizzbuzzcore:
             "Mark Joe's solution :)"
 
             "Very good":
-                $ fizzbuzzJoe = 5
+                $ fizzbuzzMarkJoe = 5
             "Good":
-                $ fizzbuzzJoe = 4
+                $ fizzbuzzMarkJoe = 4
             "Medium":
-                $ fizzbuzzJoe = 3
+                $ fizzbuzzMarkJoe = 3
             "Poor":
-                $ fizzbuzzJoe = 2
+                $ fizzbuzzMarkJoe = 2
             "Very poor":
-                $ fizzbuzzJoe = 1
+                $ fizzbuzzMarkJoe = 1
     
-
+    jump postfizzbuzz

@@ -7,4 +7,4 @@ An interactive fiction game on job interview simulation.
 - music on/off switch
 - marking and report system
 
-- play audio ??
+- play recorded human audio for a better simulation??
