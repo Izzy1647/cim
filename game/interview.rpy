@@ -5,7 +5,8 @@ label bedroom:
     scene bg bedroom
     with fadehold
 
-    "Come on, I can do this. Bring Fizzbuzz in..."
+    "Come on, it's just a coding interveiw...we've all been there!"
+    "I can do this...bring Fizzbuzz in..."
     "Or is it too simple..."
     "Or not? Damn..."
 
@@ -19,11 +20,11 @@ label preInterview:
     with fadehold
     "Next day, 1pm"
 
-    jump interview1
+    jump interviewjoe
 
 
 # joe: he seems nervous but he actually does well on these questions
-label interview1:
+label interviewjoe:
     $ isJoe = True
 
     # first interviewee character https://charactercreator.org/#skinColor=%23e5a073&irisColor=%23784421&hairColor=%231a1a1a&pupils=round&sex=m&body_head=square&ears=unplugged&nose=roman&emotion=surprise&shirt=kurta&shirtColor=%231F303F&pants=jeans_rolled&pantsColor=%23BAE0A8&vest=shawl_pointed&vestColor=%23BAE0A8&jacket=suit_open&jacketColor=%23BAE0A8&hair=buzzcut&facialhair=winnfield&earings=gold_rings
@@ -31,10 +32,12 @@ label interview1:
     with dissolve
 
 
-    j "Hey I'm Joe... I'm here for the software engineer position."
-    j "I assume I'm not at the wrong place??"
+    j "Hey I'm Joe..." 
+    j "I'm here, um...," 
+    j "for the software engineer position."
+    j "Ummmm... is this the place?"
     
-    m "No, you are not. Take a seat please."
+    m "Yes. Take a seat please."
 
     j "Thank you."
 
@@ -45,7 +48,7 @@ label interview1:
 
     menu:
         "Start with a brief self introduction":
-            jump introduction
+            jump selfintro
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
 
@@ -58,18 +61,34 @@ label prefizzbuzz:
 
         j "Ohh..."
         j "Okay..."
-        j "Very stright forward though."
+        j "Very stright forward..."
         j "What's it?"
 
         jump fizzbuzzcore
 
 label postfizzbuzz:
-    "post"
-    if fizzbuzzMarkJoe == 5:
-        "5555"
+    menu:
+        "Ask for a self introduction" if hasSelfIntroducedJoe == False:
 
-# label introduction:
-#     m "Why not start with a short self introduction?"
+            # here I use call which may cause some unexpected side effects
+            call selfintro(candidate='Joe')
+
+        "End the interview right now" if fizzbuzzMarkJoe <= 2:
+            m "Sorry.."
+            jump bridge
+        "Continue with another coding challenge":
+            m "You did good on fizzbuzz, let's move on to the next question!"
+            jump nextquestion
+
+label nextquestion:
+    menu:
+        "Two Sum":
+            jump twosumcore
+        "Longest Palindromic Substring":
+            jump lpscore
+
+label bridge:
+    "bridge"
   
 
   

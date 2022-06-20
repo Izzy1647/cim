@@ -2,8 +2,7 @@ label fizzbuzzcore:
     if isJoe:
         m "Check it out"
 
-        show fizzbuzz2 at topleft
-        with dissolve
+        show fizzbuzz at topleft
 
         ""
 
@@ -26,8 +25,6 @@ label fizzbuzzcore:
         show joe excited close at left
         with dissolve
 
-        ""
-
         j "Yes! I got it! Check it out..."
 
         show fizzbuzz sol joe at topright
@@ -44,11 +41,14 @@ label fizzbuzzcore:
                 $ fizzbuzzMarkJoe = 5
             "Good":
                 $ fizzbuzzMarkJoe = 4
-            "Medium":
+            "Okay":
                 $ fizzbuzzMarkJoe = 3
             "Poor":
                 $ fizzbuzzMarkJoe = 2
             "Very poor":
                 $ fizzbuzzMarkJoe = 1
+        
+        # hide fizzbuzz
+        hide fizzbuzz sol joe
     
     jump postfizzbuzz
