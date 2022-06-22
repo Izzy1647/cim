@@ -48,7 +48,7 @@ label interviewjoe:
 
     menu:
         "Start with a brief self introduction":
-            jump selfintro
+            call selfintro(candidate='Joe')
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
 
@@ -66,7 +66,9 @@ label prefizzbuzz:
 
         jump fizzbuzzcore
 
-label postfizzbuzz:
+label postfizzbuzz(mark='good'):
+    show joe general close at left
+    with dissolve
     menu:
         "Ask for a self introduction" if hasSelfIntroducedJoe == False:
 
@@ -77,15 +79,18 @@ label postfizzbuzz:
             m "Sorry.."
             jump bridge
         "Continue with another coding challenge":
-            m "You did good on fizzbuzz, let's move on to the next question!"
+            m "You did [mark] on fizzbuzz, let's move on to the next question!"
             jump nextquestion
 
 label nextquestion:
     menu:
         "Two Sum":
-            jump twosumcore
+            jump twosum
         "Longest Palindromic Substring":
-            jump lpscore
+            jump lps
+
+label postTwosum:
+    "post twosum"
 
 label bridge:
     "bridge"

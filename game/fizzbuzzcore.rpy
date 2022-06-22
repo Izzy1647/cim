@@ -1,3 +1,4 @@
+default mark = 'good'
 label fizzbuzzcore:
     if isJoe:
         m "Check it out"
@@ -39,16 +40,21 @@ label fizzbuzzcore:
 
             "Very good":
                 $ fizzbuzzMarkJoe = 5
+                $ mark = 'very good'
             "Good":
                 $ fizzbuzzMarkJoe = 4
+                $ mark = 'good'
             "Okay":
                 $ fizzbuzzMarkJoe = 3
+                $ mark = 'okay'
             "Poor":
                 $ fizzbuzzMarkJoe = 2
+                $ mark = 'poor'
             "Very poor":
                 $ fizzbuzzMarkJoe = 1
+                $ mark = 'very poor'
         
         # hide fizzbuzz
         hide fizzbuzz sol joe
     
-    jump postfizzbuzz
+    call postfizzbuzz(mark=mark)
