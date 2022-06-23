@@ -15,6 +15,9 @@ label markJoeTwoSum:
             $ twosumMarkJoe = 2
         "Very poor":
             $ twosumMarkJoe = 1
+
+    hide twosum joe sol
+    with dissolve
                 
     jump postTwosum
 

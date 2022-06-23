@@ -14,7 +14,7 @@ label bedroom:
 
 
 label preInterview:
-    play music interview fadein 2.0
+    # play music interview fadein 2.0
 
     scene bg interview
     with fadehold
@@ -67,33 +67,44 @@ label prefizzbuzz:
         jump fizzbuzzcore
 
 label postfizzbuzz(mark='good'):
-    show joe general close at left
-    with dissolve
-    menu:
-        "Ask for a self introduction" if hasSelfIntroducedJoe == False:
+    if isJoe:
+        show joe general close at left
+        with dissolve
+        menu:
+            "Ask for a self introduction" if hasSelfIntroducedJoe == False:
 
-            # here I use call which may cause some unexpected side effects
-            call selfintro(candidate='Joe')
+                # here I use call which may cause some unexpected side effects
+                call selfintro(candidate='Joe')
 
-        "End the interview right now" if fizzbuzzMarkJoe <= 2:
-            m "Sorry.."
-            jump bridge
-        "Continue with another coding challenge":
-            m "You did [mark] on fizzbuzz, let's move on to the next question!"
-            jump nextquestion
-
-label nextquestion:
-    menu:
-        "Two Sum":
-            jump twosum
-        "Longest Palindromic Substring":
-            jump lps
+            "End the interview right now" if fizzbuzzMarkJoe <= 2:
+                m "Sorry.."
+                jump bridge
+            "Continue with another coding challenge":
+                m "You did [mark] on fizzbuzz, let's move on to the next question!"
+                menu:
+                    "Two Sum":
+                        jump twosum
+                    "Longest Palindromic Substring":
+                        jump lps
+    
 
 label postTwosum:
-    "post twosum"
+    if isJoe:
+        m "Nice job on two sum."
+
+        menu:
+            "Bring on another coding problem!":
+                m "Let's keep doing this alright?"
+                jump lps
+            "End the interview now.":
+                "End"
+        
+        "post twosum"
+
+label postLps:
+    if isJoe:
+        m "You did well on lps."
+        
 
 label bridge:
     "bridge"
-  
-
-  

@@ -1,9 +1,9 @@
 default mark = 'good'
 label fizzbuzzcore:
+    show fizzbuzz at topleft
+    
     if isJoe:
         m "Check it out"
-
-        show fizzbuzz at topleft
 
         ""
 
