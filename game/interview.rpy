@@ -104,7 +104,66 @@ label postTwosum:
 label postLps:
     if isJoe:
         m "You did well on lps."
+        jump postJoe
+       
+
+label postJoe:
+    m "And I think this is all for today. Thank you for your time."
         
+    j "Okay... Thank you."
+
+    hide joe general close
+    with dissolve
+
+    "Now it's your time to provide a detailed feedback on Joe's overall performance."
+
+    python:
+        joeFeedbackPositive = renpy.input("Write down what Joe did great:", length=100)  
+        joeFeedbackPositive = joeFeedbackPositive.strip()
+
+        joeFeedbackNegative = renpy.input("Write down what Joe did poorly:", length=100)  
+        joeFeedbackNegative = joeFeedbackNegative.strip()
+    
+    $ isJoe = False
+    
+    "It's break time!"
+    
+    jump bridge
+
 
 label bridge:
-    "bridge"
+    show boss happy close
+    with dissolve
+
+    b "How's it going on? You feeling alright?"
+    m "Yeah, I'm good."
+    b "How's the last candidate? Is he good?"
+    menu:
+        "Good":
+            m "Yes, he's good. But there are still two remaining."
+            b "Yes, sure. The second candidate will be here soon."
+            hide boss happy close
+            with dissolve
+        "Not so good":
+            m "Hmm, can't say that."
+            show boss surprise close
+            with dissolve
+            b "Okay, luckily we have two candidates remaining. Buckle up buddy!"
+            hide boss surprise close
+            with dissolve
+    
+    jump interviewEmily
+
+label interviewEmily:
+    show emily general at left
+    with dissolve
+
+    e "Hi! I'm Emily."
+    e "I'm here for the software engineer position!"
+    
+
+    
+    
+
+    
+

@@ -11,6 +11,8 @@ label markJoeLps:
             $ lpsMarkJoe = 2
         "Very poor":
             $ lpsMarkJoe = 1
+    
+    hide lps joe sol expand with dissolve
                 
     jump postLps
 

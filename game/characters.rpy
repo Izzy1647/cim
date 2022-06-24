@@ -9,6 +9,9 @@ define m = Character('Me', color="#c8c8ff")
 # the first candidate Joe
 define j = Character("Joe")
 
+# the second candidate Emily
+define e = Character("Emily")
+
 # test customize character definition
 define test = Character(
     None,
