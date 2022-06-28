@@ -53,9 +53,8 @@ label interviewjoe:
             jump prefizzbuzz
 
 label prefizzbuzz:
+    m "Let's solve a coding problem really fast, okay?"
     if isJoe:
-        m "Let's solve a coding problem really fast, okay?"
-
         show joe fear close at left
         with dissolve
 
@@ -65,41 +64,44 @@ label prefizzbuzz:
         j "What's it?"
 
         jump fizzbuzzcore
+    
+    if isEmily:
+        e "Sure!"
+        jump fizzbuzzcore
+    
 
-label postfizzbuzz(mark='good'):
+label postfizzbuzz(mark='good', candidate=''):
     if isJoe:
         show joe general close at left
         with dissolve
-        menu:
-            "Ask for a self introduction" if hasSelfIntroducedJoe == False:
 
-                # here I use call which may cause some unexpected side effects
-                call selfintro(candidate='Joe')
-
-            "End the interview right now" if fizzbuzzMarkJoe <= 2:
-                m "Sorry.."
-                jump bridge
-            "Continue with another coding challenge":
-                m "You did [mark] on fizzbuzz, let's move on to the next question!"
-                menu:
-                    "Two Sum":
-                        jump twosum
-                    "Longest Palindromic Substring":
-                        jump lps
+    menu:
+        "End the interview right now" if mark == 'poor' or mark == 'very poor':
+            m "Sorry.."
+            jump ending
+        "Continue with another coding challenge":
+            m "You did [mark] on fizzbuzz, let's move on to the next question!"
+            menu:
+                "Two Sum":
+                    jump twosum
+                "Longest Palindromic Substring":
+                    jump lps
     
 
 label postTwosum:
     if isJoe:
         m "Nice job on two sum."
+   
+    if isEmily:
+        m "Well done."
+    
+    menu:
+        "Bring on another coding problem!":
+            m "Let's keep doing this alright?"
+            jump lps
+        "End the interview now.":
+            jump ending
 
-        menu:
-            "Bring on another coding problem!":
-                m "Let's keep doing this alright?"
-                jump lps
-            "End the interview now.":
-                "End"
-        
-        "post twosum"
 
 label postLps:
     if isJoe:
@@ -154,16 +156,30 @@ label bridge:
     
     jump interviewEmily
 
+
 label interviewEmily:
+    $ isEmily = True
+
     show emily general at left
     with dissolve
 
     e "Hi! I'm Emily."
     e "I'm here for the software engineer position!"
-    
 
+    m "Yes, yes, welcome. Take a seat please."
     
-    
+    show emily general close at left
+    with dissolve
 
-    
+    menu:
+        "Start with a brief self introduction":
+            call selfintro(candidate='Emily')
+        "Bring on Fizzbuzz!":
+            jump prefizzbuzz
+
+
+
+label ending:
+    "end pass"
+
 

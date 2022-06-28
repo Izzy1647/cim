@@ -1,9 +1,9 @@
 default mark = 'good'
 label fizzbuzzcore:
     show fizzbuzz at topleft
-    
+    m "Check it out."
+
     if isJoe:
-        m "Check it out"
 
         ""
 
@@ -56,5 +56,44 @@ label fizzbuzzcore:
         
         # hide fizzbuzz
         hide fizzbuzz sol joe
+        call postfizzbuzz(mark=mark, candidate='Joe')
+
     
-    call postfizzbuzz(mark=mark)
+    if isEmily:
+        show emily easy close at left
+        with dissolve
+
+        e "Okay, gimme one minute."
+
+        "one minute passed..."
+
+        show fizzbuzz sol emily at topright
+        with dissolve
+
+        e "Here it is."
+
+        show emily general close at left
+        with dissolve
+
+        menu:
+            "Mark Emily's solution on fizzbuzz"
+
+            "Very good":
+                $ fizzbuzzMarkEmily = 5
+                $ mark = 'very good'
+            "Good":
+                $ fizzbuzzMarkEmily = 4
+                $ mark = 'good'
+            "Okay":
+                $ fizzbuzzMarkEmily = 3
+                $ mark = 'okay'
+            "Poor":
+                $ fizzbuzzMarkEmily = 2
+                $ mark = 'poor'
+            "Very poor":
+                $ fizzbuzzMarkEmily = 1
+                $ mark = 'very poor'
+        
+        hide fizzbuzz sol emily
+
+        call postfizzbuzz(mark=mark, candidate='Emily')

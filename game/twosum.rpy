@@ -4,7 +4,7 @@ default output2 = [1, 0]
 
 label markJoeTwoSum:
     menu:
-        "Mark joe's performance :)"
+        "Mark joe's performance on twosum"
         "Very good":
             $ twosumMarkJoe = 5
         "Good":
@@ -21,8 +21,25 @@ label markJoeTwoSum:
                 
     jump postTwosum
 
+label markEmilyTwosum:
+    menu:
+        "Mark emily's performance on twosum"
+        "Very good":
+            $ twosumMarkEmily = 5
+        "Good":
+            $ twosumMarkEmily = 4
+        "Okay":
+            $ twosumMarkEmily = 3
+        "Poor":
+            $ twosumMarkEmily = 2
+        "Very poor":
+            $ twosumMarkEmily = 1
+    
+    hide 
+
+    jump postTwosum
         
-label deeperWithJoe:
+label twosumDeeperWithJoe:
     m "What's the time complexity of your implementation?"
     j "Umm... so there are two loops..."
     j "I think it's O(n^2)."
@@ -88,6 +105,12 @@ label deeperWithJoe:
         "Mark Joe's performance now":
             jump markJoeTwoSum
        
+label twosumDeeperWithEmily:
+    m "Looks fine. So what's the time complexity here?"
+    e "O(n)."
+    m "Yeah, that's pretty much it. Good job."
+    jump markEmilyTwosum
+
 
 label twosum:
     m "Let's take a look."
@@ -127,4 +150,43 @@ label twosum:
                 jump markJoeTwoSum
 
             "Dig deeper into the solution":
-                jump deeperWithJoe
+                jump twosumDeeperWithJoe
+
+    if isEmily:
+        show emily relief close at left
+        with dissolve
+
+        e "Yes!"
+        m "Okay. So can you sort it out?"
+        e "Yes!"
+        m "Okay!"
+
+        "one minute passed..."
+        "two minutes passed..."
+        show emily eyes closed close at left
+        with dissolve
+
+        "three minutes passed..."
+
+        show emily general close at left
+        with dissolve
+
+        e "Here, check it out!"
+
+        show twosum sol emily at topright
+        with dissolve
+
+        ""
+
+        menu:
+            "Mark the solution right now":
+                jump markEmilyTwosum
+
+            "Dig deeper into the solution":
+                jump twosumDeeperWithEmily
+
+
+        
+
+
+        

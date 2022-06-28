@@ -143,8 +143,9 @@ label lps:
     show lps at topleft
     with dissolve
 
+    m "This one is called longest palindromic substring."
+
     if isJoe:
-        m "This one is called longest palindromic substring."
         j "Yes...I think I understand the question."
         m "Great! So what do you think?"
 
@@ -221,4 +222,5 @@ label lps:
             "Ask for a faster solution":
                 jump lpsJoeBfOptimization
                 
-                
+    if isEmily:
+        e "Yes."               
