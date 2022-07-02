@@ -14,7 +14,7 @@ label bedroom:
 
 
 label preInterview:
-    # play music interview fadein 2.0
+    play music interview fadein 2.0
 
     scene bg interview
     with fadehold

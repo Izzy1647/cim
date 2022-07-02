@@ -16,6 +16,23 @@ label markJoeLps:
                 
     jump postLps
 
+label markEmilyLps:
+    menu:
+        "Mark Emily's performance on lps :)"
+        "Very good":
+            $ lpsMarkEmily = 5
+        "Good":
+            $ lpsMarkEmily = 4
+        "Okay":
+            $ lpsMarkEmily = 3
+        "Poor":
+            $ lpsMarkEmily = 2
+        "Very poor":
+            $ lpsMarkEmily = 1
+    
+    hide lps emily sol expand with dissolve
+                
+    jump postLps
 
 label lpsJoeBfOptimization:
     m "What's the time complexity here?"
@@ -223,4 +240,37 @@ label lps:
                 jump lpsJoeBfOptimization
                 
     if isEmily:
-        e "Yes."               
+        e "Yes."
+        m "So are you clear with what you need to do?"
+
+        show emily concentrate close at left
+        with dissolve
+
+        e "Yes, give me some time."
+        m "Sure."
+
+        "one minute passed..."
+        "two minutes passed..."
+
+        show emily general close at left
+        with dissolve
+
+        e "I think I got it, look."
+
+        show lps sol emily expand js at topright
+        with dissolve
+
+        m "Wow this is fast."
+        e "Haha. I type fast."
+        
+        menu:
+            "Mark the solution now":
+                jump markEmiLps
+            "Dig deeper into the solution":
+                m "So what's the time compexity here?"
+
+
+        
+
+
+

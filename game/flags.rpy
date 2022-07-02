@@ -1,3 +1,7 @@
+# game config
+default language = 'js'
+
+
 # joe interview evaluation:
 default fizzbuzzMarkJoe = -1
 default twosumMarkJoe = -1

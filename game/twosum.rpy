@@ -35,7 +35,7 @@ label markEmilyTwosum:
         "Very poor":
             $ twosumMarkEmily = 1
     
-    hide 
+    hide twosum sol emily
 
     jump postTwosum
         
