@@ -265,9 +265,27 @@ label lps:
         
         menu:
             "Mark the solution now":
-                jump markEmiLps
+                jump markEmilyLps
             "Dig deeper into the solution":
                 m "So what's the time compexity here?"
+                e "O(n^2)."
+                m "Okay. Nice."
+                menu:
+                    "Ask for a faster solution":
+                        m "Do you think you can make it faster? O(n^2) could be good, it could be slow as well."
+                        
+                        show emily concentrate close at left
+                        with dissolve
+
+                        e "I can't."
+                        m "Oh, that's pretty clear cut."
+                        
+                        show emily general close at left
+                        with dissolve
+
+                        jump markEmilyLps
+                    "Mark the current solution":
+                        jump markEmilyLps
 
 
         
