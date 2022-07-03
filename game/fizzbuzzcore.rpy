@@ -10,6 +10,11 @@ label fizzbuzzcore:
         j "Hmmmmm... yes, fizzbuzz..."
         j "Give me a minute..."
 
+        show joe focus close at left
+        with dissolve
+
+        play sound "/audio/joeTyping.mp3" loop
+
         "one minute passed..."
         "two minutes passed..."
 
@@ -22,6 +27,8 @@ label fizzbuzzcore:
 
         "four minutes passed..."
         "five minutes passed..."
+
+        stop sound
 
         show joe excited close at left
         with dissolve
@@ -66,7 +73,11 @@ label fizzbuzzcore:
 
         e "Okay, gimme one minute."
 
+        play sound "/audio/emilyTyping.mp3" loop
+
         "one minute passed..."
+
+        stop sound
 
         if language == 'js':
             show fizzbuzz sol emily js at topright

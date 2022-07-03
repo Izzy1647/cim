@@ -79,9 +79,13 @@ label twosumDeeperWithJoe:
             show joe general close at left
             with dissolve
 
+            play sound "/audio/joeTyping.mp3" loop
+
             "one minute passed..."
             "two minutes passed..."
             "three minutes passed..."
+
+            stop sound
 
             show joe excited close at left
             with dissolve
@@ -134,10 +138,14 @@ label twosum:
         show joe focus close at left
         with dissolve
 
+        play sound "/audio/joeTyping.mp3" loop
+
         "one minute passed..."
 
         show joe general close at left
         with dissolve
+
+        stop sound
 
         j "Hmm, here it is."
 
@@ -163,6 +171,8 @@ label twosum:
         e "Yes!"
         m "Okay!"
 
+        play sound "/audio/emilyTyping.mp3" loop
+
         "one minute passed..."
         "two minutes passed..."
 
@@ -173,6 +183,8 @@ label twosum:
 
         show emily general close at left
         with dissolve
+
+        stop sound
 
         e "Here, check it out!"
 
@@ -188,9 +200,4 @@ label twosum:
 
             "Dig deeper into the solution":
                 jump twosumDeeperWithEmily
-
-
-        
-
-
         

@@ -96,12 +96,16 @@ label lpsJoeBfOptimization:
     show joe focus close at left
     with dissolve
 
+    play sound "/audio/joeTyping.mp3" loop
+
     "One minute passed..."
     "Two minutes passed..."
     "Three minutes passed..."
 
     show joe fear close at left
     with dissolve
+
+    stop sound
 
     j "So first of all I have a function for expanding the string."
 
@@ -119,6 +123,8 @@ label lpsJoeBfOptimization:
 
     m "Sounds nice."
 
+    play sound "/audio/joeTyping.mp3" loop
+
     "One minute passed..."
     "Two minute passed..."
     "Three minute passed..."
@@ -131,7 +137,8 @@ label lpsJoeBfOptimization:
     if language == 'js':
         show lps sol joe expand js at topright
         with dissolve
-
+    
+    stop sound
     j "Okay... I think this works."
 
     menu:
@@ -195,9 +202,13 @@ label lps:
 
                 show joe focus close at left
                 with dissolve
+
+                play sound "/audio/joeTyping.mp3" loop
                 
                 "One minute passed..."
                 "Two minutes passed..."
+
+                stop sound
 
                 if language == 'js':
                     show ispalindromic joe js at topright
@@ -212,6 +223,8 @@ label lps:
                 show joe general close at left
                 with dissolve
 
+                play sound "/audio/joeTyping.mp3" loop
+
                 "One minute passed..."
                 "Two minutes passed..."
 
@@ -220,6 +233,8 @@ label lps:
 
                 "Three minutes passed..."
                 "Four minutes passed..."
+
+                stop sound
 
                 hide ispalindromic joe js
                 with dissolve
@@ -253,11 +268,15 @@ label lps:
         e "Yes, give me some time."
         m "Sure."
 
+        play sound "/audio/emilyTyping.mp3" loop
+
         "one minute passed..."
         "two minutes passed..."
 
         show emily general close at left
         with dissolve
+
+        stop sound
 
         e "I think I got it, look."
 
