@@ -88,8 +88,9 @@ label twosumDeeperWithJoe:
 
             j "I think I got it... Check it out."
 
-            show twosum sol joe hashmap at topright
-            with dissolve
+            if language == 'js':
+                show twosum sol joe hashmap js at topright
+                with dissolve
 
             j "So the time complexity is..." 
             j "Ummm..."
@@ -140,8 +141,9 @@ label twosum:
 
         j "Hmm, here it is."
 
-        show twosum sol joe bf at topright
-        with dissolve
+        if language == 'js':
+            show twosum sol joe bf js at topright
+            with dissolve
 
         j "It's like a, umm..., very straight forward solution I think."
 
@@ -163,6 +165,7 @@ label twosum:
 
         "one minute passed..."
         "two minutes passed..."
+
         show emily eyes closed close at left
         with dissolve
 
@@ -173,8 +176,9 @@ label twosum:
 
         e "Here, check it out!"
 
-        show twosum sol emily at topright
-        with dissolve
+        if language == 'js':
+            show twosum sol emily js at topright
+            with dissolve
 
         ""
 

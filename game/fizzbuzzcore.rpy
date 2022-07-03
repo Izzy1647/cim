@@ -28,8 +28,9 @@ label fizzbuzzcore:
 
         j "Yes! I got it! Check it out..."
 
-        show fizzbuzz sol joe at topright
-        with dissolve
+        if language == 'js':
+            show fizzbuzz sol joe js at topright
+            with dissolve
 
         j "I assume it's a correct solution."
 
@@ -55,7 +56,7 @@ label fizzbuzzcore:
                 $ mark = 'very poor'
         
         # hide fizzbuzz
-        hide fizzbuzz sol joe
+        hide fizzbuzz sol joe js
         call postfizzbuzz(mark=mark, candidate='Joe')
 
     
@@ -67,8 +68,9 @@ label fizzbuzzcore:
 
         "one minute passed..."
 
-        show fizzbuzz sol emily at topright
-        with dissolve
+        if language == 'js':
+            show fizzbuzz sol emily js at topright
+            with dissolve
 
         e "Here it is."
 
@@ -94,6 +96,6 @@ label fizzbuzzcore:
                 $ fizzbuzzMarkEmily = 1
                 $ mark = 'very poor'
         
-        hide fizzbuzz sol emily
+        hide fizzbuzz sol emily js
 
         call postfizzbuzz(mark=mark, candidate='Emily')

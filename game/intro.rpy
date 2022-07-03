@@ -2,6 +2,16 @@
 
 label start:
 
+    menu:
+        "Set your preferred programming language"
+        "Python":
+            $ language = 'python'
+        "JavaScript":
+            $ language = 'js'
+        "Pseudocode":
+            $ language = 'pseudo'
+
+
     show screen musicSwitchButton
 
     # Show a background. This uses a placeholder by default, but you can

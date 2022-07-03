@@ -105,8 +105,9 @@ label lpsJoeBfOptimization:
 
     j "So first of all I have a function for expanding the string."
 
-    show expand string joe at topright
-    with dissolve
+    if language == 'js':
+        show expand string joe js at topright
+        with dissolve
     
     m "Okay... returns a substring, looks fine."
 
@@ -127,8 +128,9 @@ label lpsJoeBfOptimization:
 
     hide expand string joe
 
-    show lps sol joe expand at topright
-    with dissolve
+    if language == 'js':
+        show lps sol joe expand js at topright
+        with dissolve
 
     j "Okay... I think this works."
 
@@ -197,8 +199,9 @@ label lps:
                 "One minute passed..."
                 "Two minutes passed..."
 
-                show ispalindromic joe at topright
-                with dissolve
+                if language == 'js':
+                    show ispalindromic joe js at topright
+                    with dissolve
 
                 j "So it is the function, and it can be called in the main function."
                 m "Sure, it looks fine."
@@ -218,11 +221,12 @@ label lps:
                 "Three minutes passed..."
                 "Four minutes passed..."
 
-                hide ispalindromic joe
+                hide ispalindromic joe js
                 with dissolve
 
-                show lps sol joe bf at topright
-                with dissolve
+                if language == 'js':
+                    show lps sol joe bf js at topright
+                    with dissolve
 
                 j "So it's just get all possible substrings and use isPalindrom function to check."
 
@@ -257,8 +261,9 @@ label lps:
 
         e "I think I got it, look."
 
-        show lps sol emily expand js at topright
-        with dissolve
+        if language == 'js':
+            show lps sol emily expand js at topright
+            with dissolve
 
         m "Wow this is fast."
         e "Haha. I type fast."

@@ -14,7 +14,7 @@ label bedroom:
 
 
 label preInterview:
-    play music interview fadein 2.0
+    # play music interview fadein 2.0
 
     scene bg interview
     with fadehold
@@ -105,8 +105,10 @@ label postTwosum:
 
 label postLps:
     if isJoe:
-        m "You did well on lps."
         jump postJoe
+    
+    if isEmily:
+        jump postEmily
        
 
 label postJoe:
@@ -130,31 +132,82 @@ label postJoe:
     
     "It's break time!"
     
-    jump bridge
+    call bridge(candidate='joe')
 
 
-label bridge:
+label postEmily:
+    m "You did nice. And it's all for today."
+    e "Okay, thank you!"
+
+    hide emily general close
+    with dissolve
+
+    "Now it's your time to provide a detailed feedback on Emily's overall performance."
+
+    python:
+        emilyFeedbackPositive = renpy.input("Write down what Emily did great:", length=100)  
+        emilyFeedbackPositive = emilyFeedbackPositive.strip()
+
+        emilyFeedbackNegative = renpy.input("Write down what Emily did poorly:", length=100)  
+        emilyFeedbackNegative = emilyFeedbackNegative.strip()
+    
+    $ isEmily = False
+    
+    "It's break time!"
+    
+    call bridge(candidate='emily')
+    
+
+label bridge(candidate='joe'):
     show boss happy close
     with dissolve
 
-    b "How's it going on? You feeling alright?"
-    m "Yeah, I'm good."
-    b "How's the last candidate? Is he good?"
-    menu:
-        "Good":
-            m "Yes, he's good. But there are still two remaining."
-            b "Yes, sure. The second candidate will be here soon."
-            hide boss happy close
-            with dissolve
-        "Not so good":
-            m "Hmm, can't say that."
-            show boss surprise close
-            with dissolve
-            b "Okay, luckily we have two candidates remaining. Buckle up buddy!"
-            hide boss surprise close
-            with dissolve
+    if candidate == 'joe':
+        b "How's it going on? You feeling alright?"
+        m "Yeah, I'm good."
+        b "How's the last candidate? Good?"
+        menu:
+            "Good":
+                m "Yes, he's good. But there are still two remaining."
+                b "Yes, sure. The second candidate will be here soon."
+                hide boss happy close
+                with dissolve
+            "Not so good":
+                m "Hmm, can't say that."
+                show boss surprise close
+                with dissolve
+                b "Okay, luckily we have two candidates remaining. Buckle up buddy!"
+                hide boss surprise close
+                with dissolve
+        
+        jump interviewEmily
     
-    jump interviewEmily
+    if candidate == 'emily':
+        b "How's Emily?"
+        menu:
+            "Good":
+                m "She's great."
+                b "That's nice to hear."
+                b "Adam will be here soon."
+                m "Okay."
+
+                hide boss happy close
+                with dissolve
+
+            "Not so good":
+                m "Can't say she's good."
+
+                show boss serious close
+                with dissolve
+
+                b "Hmm okay, just make sure to use your best judgment."
+                m "Will do."
+
+                hide boss serious close
+                with dissolve
+
+        jump interviewAdam
+        
 
 
 label interviewEmily:
@@ -176,6 +229,11 @@ label interviewEmily:
             call selfintro(candidate='Emily')
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
+
+
+label interviewAdam:
+    $ isAdam = True
+    "pass"
 
 
 
