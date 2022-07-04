@@ -69,6 +69,10 @@ label prefizzbuzz:
         e "Sure!"
         jump fizzbuzzcore
     
+    if isAdam:
+        a "Okay."
+        jump fizzbuzzcore
+    
 
 label postfizzbuzz(mark='good', candidate=''):
     if isJoe:
@@ -233,8 +237,27 @@ label interviewEmily:
 
 label interviewAdam:
     $ isAdam = True
-    "pass"
 
+    show adam general at right
+    with dissolve
+
+    a "Hi I'm Adam."
+    m "Hi, welcome... to the interview? Take a seat please."
+    a "Haha, yes, thank you."
+
+    show adam general close at left
+    with dissolve
+
+    m "So, huh, let's do it!"
+
+    show adam smile close at left
+    with dissolve
+
+    menu:
+        "Start with a brief self introduction":
+            call selfintro(candidate='Adam')
+        "Bring on Fizzbuzz!":
+            jump prefizzbuzz
 
 
 label ending:

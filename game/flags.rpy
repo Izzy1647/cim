@@ -25,3 +25,15 @@ default lpsMarkEmily = -1
 
 default emilyFeedbackPositive = ''
 default emilyFeedbackNegative = ''
+
+# adam interview states
+default isAdam = False
+default hasSelfIntroducedAdam = False
+
+# adam interview evaluation:
+default fizzbuzzMarkAdam = -1
+default twosumMarkAdam = -1
+default lpsMarkAdam = -1
+
+default adamFeedbackPositive = ''
+default adamFeedbackNegative = ''

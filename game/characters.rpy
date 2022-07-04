@@ -12,6 +12,9 @@ define j = Character("Joe")
 # the second candidate Emily
 define e = Character("Emily")
 
+# the third candidate Adam
+define a = Character("Adam")
+
 # test customize character definition
 define test = Character(
     None,
