@@ -2,9 +2,28 @@ default nums = [2, 7, 11, 15]
 default output1 = [0, 1]
 default output2 = [1, 0]
 
+label markAdamTwoSum:
+    menu:
+        "Mark Adam's performance on twosum"
+        "Very good":
+            $ twosumMarkAdam = 5
+        "Good":
+            $ twosumMarkAdam = 4
+        "Okay":
+            $ twosumMarkAdam = 3
+        "Poor":
+            $ twosumMarkAdam = 2
+        "Very poor":
+            $ twosumMarkAdam = 1
+
+    hide twosum sol adam wrong js
+    with dissolve
+                
+    jump postTwosum
+
 label markJoeTwoSum:
     menu:
-        "Mark joe's performance on twosum"
+        "Mark Joe's performance on twosum"
         "Very good":
             $ twosumMarkJoe = 5
         "Good":
@@ -16,7 +35,7 @@ label markJoeTwoSum:
         "Very poor":
             $ twosumMarkJoe = 1
 
-    hide twosum joe sol
+    hide twosum joe sol js
     with dissolve
                 
     jump postTwosum
@@ -35,7 +54,7 @@ label markEmilyTwosum:
         "Very poor":
             $ twosumMarkEmily = 1
     
-    hide twosum sol emily
+    hide twosum sol emily js
 
     jump postTwosum
         
@@ -200,4 +219,72 @@ label twosum:
 
             "Dig deeper into the solution":
                 jump twosumDeeperWithEmily
+    
+    if isAdam:
+        a "Yes it does."
+        a "Well give me some time to think through it."
+
+        m "Sure."
+
+        show adam worry close at left
+        with dissolve
+
+        "one minute passed..."
+        "two minutes passed..."
+
+        show adam general close at left
+        with dissolve
+
+        a "Okay, so I think one possible way is to brufal force it, which would be O(n^2) in time complexity."
+        a "Another way is an O(n) solution with a hash map, a higher space complexity then brutal force."
+
+        m "Yes, makes sense. Can you implement one of them?"
+
+        a "Okay, I will do the hash map one."
+
+        m "Thank you."
+
+        show adam focus close at left
+        with dissolve
+
+        play sound "/audio/adamTyping.wav" loop
+
+        "one minute passed..."
+        "two minutes passed..."
+        "three minutes passed..."
+        "four minuted passed..."
+        "five minutes passed..."
+
+        stop sound
+
+        show adam general close at left
+        with dissolve
+
+        a "Check it out."
+
+        if language == 'js':
+            show twosum sol adam wrong js at topright
+            with dissolve
+        
+        menu:
+            "Fine, mark Adam's solution on twosum":
+                jump markAdamTwosum
+            "Seems incorrect, dig deeper":
+                m "Well, I think this works, but there, again, is a slight problem in it."
+
+                show adam worry close at left
+                with dissolve
+
+                a "Let me look into it, sorry."
+                m "Yeah, yeah, it's just that you need to return the index, not the number itself."
+
+                show adam general close at left
+                with dissolve
+                
+                a "Ah, yes. Then I will store the index instead of the value in the hash map."
+                m "Cool."
+
+                jump markAdamTwoSum
+
+
         

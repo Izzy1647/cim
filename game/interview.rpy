@@ -108,11 +108,17 @@ label postTwosum:
 
 
 label postLps:
+
+    # if more questions are enabled, insert here
+
     if isJoe:
         jump postJoe
     
     if isEmily:
         jump postEmily
+    
+    if isAdam:
+        jump postAdam
        
 
 label postJoe:
@@ -161,6 +167,27 @@ label postEmily:
     
     call bridge(candidate='emily')
     
+label postAdam:
+    m "It's all for today, thank you for your time."
+    a "No big deal, thank you for your time."
+
+    hide adam smile close
+    with dissolve
+
+    "Now it's your time to provide a detailed feedback on Adam's overall performance."
+
+    python:
+        adamFeedbackPositive = renpy.input("Write down what Adam did great:", length=100)  
+        adamFeedbackPositive = adamFeedbackPositive.strip()
+
+        adamFeedbackPositive = renpy.input("Write down what Adam did poorly:", length=100)  
+        adamFeedbackPositive = adamFeedbackPositive.strip()
+    
+    $ isEmily = False
+    
+    "It's break time!"
+    
+    call bridge(candidate='emily')
 
 label bridge(candidate='joe'):
     show boss happy close

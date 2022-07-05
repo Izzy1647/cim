@@ -187,5 +187,10 @@ label markAdamFizzbuzz:
         "Very poor":
             $ fizzbuzzMarkAdam = 1
             $ mark = 'very poor'
+    
+    hide fizzbuzz sol adam wrong js
+    hide fizzbuzz sol adam wrong py
+    hide fizzbuzz sol adam wrong pseudo
+
 
     call postfizzbuzz(mark=mark, candidate='Adam')

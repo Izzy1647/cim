@@ -12,7 +12,7 @@ label markJoeLps:
         "Very poor":
             $ lpsMarkJoe = 1
     
-    hide lps joe sol expand with dissolve
+    hide lps joe sol expand js with dissolve
                 
     jump postLps
 
@@ -30,8 +30,28 @@ label markEmilyLps:
         "Very poor":
             $ lpsMarkEmily = 1
     
-    hide lps emily sol expand with dissolve
+    hide lps emily sol expand js
+    with dissolve
                 
+    jump postLps
+
+label markAdamLps:
+    menu:
+        "Mark Adam's performance on lps :)"
+        "Very good":
+            $ lpsMarkAdam = 5
+        "Good":
+            $ lpsMarkAdam = 4
+        "Okay":
+            $ lpsMarkAdam = 3
+        "Poor":
+            $ lpsMarkAdam = 2
+        "Very poor":
+            $ lpsMarkAdam = 1
+    
+    hide lps adam sol js
+    with dissolve
+                    
     jump postLps
 
 label lpsJoeBfOptimization:
@@ -310,9 +330,68 @@ label lps:
                         jump markEmilyLps
                     "Mark the current solution":
                         jump markEmilyLps
+    
 
+    if isAdam:
+        a "Hmm, again, okay, I see."
+        a "Give me some time to think it through."
 
-        
+        m "Sure."
 
+        show adam worry close at left
+        with dissolve
+
+        "one minute passed..."
+        "two minutes passed..."
+        "three minutes passed..."
+
+        show adam smile close at left
+        with dissolve
+
+        a "Okay, I got two ideas."
+        a "First one is using dynamic programming, with a time complexity of O(n^2)."
+        a "The second one is an algorithm called Manacher's Algorithm, with a time complexity of O(n)."
+        a "However, I don't think I can implement the Manacher's algorithm now. If you want I can show you a reference."
+
+        m "Oh, it's okay, could you just implement the dynamic programming one?"
+
+        show adam general close at left
+        with dissolve
+
+        a "Hmm, okay."
+
+        play sound "/audio/adamTyping.wav" loop
+
+        "one minute passed..."
+        "two minutes passed..."
+        "three minutes passed..."
+        "four minutes passed..."
+
+        show adam focus close at left
+        with dissolve
+
+        "five minutes passed..."
+        "six minutes passed..."
+
+        show adam general close at left
+        with dissolve
+
+        stop sound
+
+        a "Okay, finally, check it out."
+
+        if language == 'js':
+            show lps sol adam js at topright
+            with dissolve
+
+        a "I think this works. Though it can't be executed on the white board."
+        m "Yes, haha, true. What's the time complexity again?"
+        a "O(n)."
+        m "Okay, nice, good job."
+
+        show adam smile close at left
+        with dissolve
+
+        jump markAdamLps
 
 
