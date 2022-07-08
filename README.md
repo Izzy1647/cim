@@ -4,8 +4,11 @@ An interactive fiction game on coding interview simulation.
 
 ## to-do
 - random character generation (coding capability, apperance, personality)
-- music on/off switch
+- music on/off switch 🆗
+- multi language support
 - marking and report system
+- co interviewers
+- modify question list menu structure
 
 - play recorded human audio for a better simulation??
 Articles about accent effect in interviews:

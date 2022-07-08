@@ -13,7 +13,10 @@ label markJoeLps:
             $ lpsMarkJoe = 1
     
     hide lps joe sol expand js with dissolve
-                
+    hide lps joe sol expand py with dissolve
+    hide lps joe sol expand pseudo with dissolve
+
+
     jump postLps
 
 label markEmilyLps:
@@ -30,8 +33,10 @@ label markEmilyLps:
         "Very poor":
             $ lpsMarkEmily = 1
     
-    hide lps emily sol expand js
-    with dissolve
+    hide lps emily sol expand js with dissolve
+    hide lps emily sol expand py with dissolve
+    hide lps emily sol expand pseudo with dissolve
+
                 
     jump postLps
 
@@ -49,8 +54,9 @@ label markAdamLps:
         "Very poor":
             $ lpsMarkAdam = 1
     
-    hide lps adam sol js
-    with dissolve
+    hide lps adam sol js with dissolve
+    hide lps adam sol py with dissolve
+    hide lps adam sol pseudo with dissolve
                     
     jump postLps
 
@@ -132,6 +138,15 @@ label lpsJoeBfOptimization:
     if language == 'js':
         show expand string joe js at topright
         with dissolve
+
+    if language == 'python':
+        show expand string joe py at topright
+        with dissolve
+    
+    if language == 'pseudo':
+        show expand string joe pseudo at topright
+        with dissolve
+    
     
     m "Okay... returns a substring, looks fine."
 
@@ -152,10 +167,21 @@ label lpsJoeBfOptimization:
     show joe excited close at left
     with dissolve
 
-    hide expand string joe
+    hide expand string joe js
+    hide expand string joe py
+    hide expand string joe pseudo
+
 
     if language == 'js':
         show lps sol joe expand js at topright
+        with dissolve
+    
+    if language == 'python':
+        show lps sol joe expand py at topright
+        with dissolve
+    
+    if language == 'pseudo':
+        show lps sol joe expand pseudo at topright
         with dissolve
     
     stop sound
@@ -233,6 +259,14 @@ label lps:
                 if language == 'js':
                     show ispalindromic joe js at topright
                     with dissolve
+                
+                if language == 'python':
+                    show ispalindromic joe py at topright
+                    with dissolve
+                
+                if language == 'pseudo':
+                    show ispalindromic joe pseudo at topright
+                    with dissolve
 
                 j "So it is the function, and it can be called in the main function."
                 m "Sure, it looks fine."
@@ -256,11 +290,21 @@ label lps:
 
                 stop sound
 
-                hide ispalindromic joe js
-                with dissolve
+                hide ispalindromic joe js with dissolve
+                hide ispalindromic joe py with dissolve
+                hide ispalindromic joe pseudo with dissolve
+
 
                 if language == 'js':
                     show lps sol joe bf js at topright
+                    with dissolve
+                
+                if language == 'python':
+                    show lps sol joe bf py at topright
+                    with dissolve
+                
+                if language == 'pseudo':
+                    show lps sol joe bf pseudo at topright
                     with dissolve
 
                 j "So it's just get all possible substrings and use isPalindrom function to check."
@@ -302,6 +346,14 @@ label lps:
 
         if language == 'js':
             show lps sol emily expand js at topright
+            with dissolve
+        
+        if language == 'python':
+            show lps sol emily expand py at topright
+            with dissolve
+        
+        if language == 'pseudo':
+            show lps sol emily expand pseudo at topright
             with dissolve
 
         m "Wow this is fast."
@@ -383,11 +435,19 @@ label lps:
         if language == 'js':
             show lps sol adam js at topright
             with dissolve
+        
+        if language == 'python':
+            show lps sol adam py at topright
+            with dissolve
+        
+        if language == 'pseudo':
+            show lps sol adam pseudo at topright
+            with dissolve
 
         a "I think this works. Though it can't be executed on the white board."
         m "Yes, haha, true. What's the time complexity again?"
-        a "O(n)."
-        m "Okay, nice, good job."
+        a "O(n^2)."
+        m "Okay."
 
         show adam smile close at left
         with dissolve

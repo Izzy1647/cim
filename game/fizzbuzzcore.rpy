@@ -39,6 +39,14 @@ label fizzbuzzcore:
             show fizzbuzz sol joe js at topright
             with dissolve
 
+        if language == 'python':
+            show fizzbuzz sol joe py at topright
+            with dissolve
+
+        if language == 'pseudo':
+            show fizzbuzz sol joe pseudo at topright
+            with dissolve
+
         j "I assume it's a correct solution."
 
         "Now it's your time to mark Joe's solution."
@@ -64,6 +72,9 @@ label fizzbuzzcore:
         
         # hide fizzbuzz
         hide fizzbuzz sol joe js
+        hide fizzbuzz sol joe py
+        hide fizzbuzz sol joe pseudo
+
         call postfizzbuzz(mark=mark, candidate='Joe')
 
     
@@ -81,6 +92,14 @@ label fizzbuzzcore:
 
         if language == 'js':
             show fizzbuzz sol emily js at topright
+            with dissolve
+        
+        if language == 'python':
+            show fizzbuzz sol emily py at topright
+            with dissolve
+        
+        if language == 'pseudo':
+            show fizzbuzz sol emily pseudo at topright
             with dissolve
 
         e "Here it is."
@@ -108,6 +127,8 @@ label fizzbuzzcore:
                 $ mark = 'very poor'
         
         hide fizzbuzz sol emily js
+        hide fizzbuzz sol emily py
+        hide fizzbuzz sol emily pseudo
 
         call postfizzbuzz(mark=mark, candidate='Emily')
 
@@ -138,6 +159,14 @@ label fizzbuzzcore:
         
         if language == 'js':
             show fizzbuzz sol adam wrong js at topright
+            with dissolve
+        
+        if language == 'python':
+            show fizzbuzz sol adam wrong py at topright
+            with dissolve
+        
+        if language == 'pseudo':
+            show fizzbuzz sol adam wrong pseudo at topright
             with dissolve
 
         ""

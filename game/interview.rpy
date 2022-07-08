@@ -82,7 +82,13 @@ label postfizzbuzz(mark='good', candidate=''):
     menu:
         "End the interview right now" if mark == 'poor' or mark == 'very poor':
             m "Sorry.."
-            jump ending
+            if isJoe:
+                jump postJoe
+            if isEmily:
+                jump postEmily
+            if isAdam:
+                jump postAdam
+
         "Continue with another coding challenge":
             m "You did [mark] on fizzbuzz, let's move on to the next question!"
             menu:
@@ -122,7 +128,7 @@ label postLps:
        
 
 label postJoe:
-    m "And I think this is all for today. Thank you for your time."
+    m "I think this is all for today. Thank you for your time."
         
     j "Okay... Thank you."
 
@@ -146,7 +152,7 @@ label postJoe:
 
 
 label postEmily:
-    m "You did nice. And it's all for today."
+    m "It's all for today."
     e "Okay, thank you!"
 
     hide emily general close
@@ -183,11 +189,12 @@ label postAdam:
         adamFeedbackPositive = renpy.input("Write down what Adam did poorly:", length=100)  
         adamFeedbackPositive = adamFeedbackPositive.strip()
     
-    $ isEmily = False
+    $ isAdam = False
     
-    "It's break time!"
+    "This is all three candidates for today."
+    "Now you can check all marks and reviews you made on three candidates, and make your final decision on who to employ."
     
-    call bridge(candidate='emily')
+    call ending
 
 label bridge(candidate='joe'):
     show boss happy close
@@ -288,6 +295,20 @@ label interviewAdam:
 
 
 label ending:
-    "end pass"
+    show joe general at left
+    with dissolve
+
+    show emily general at center
+    with dissolve
+
+    show adam general at right
+    with dissolve
 
 
+    menu:
+        "Joe":
+            show screen report(candidate='Joe') 
+        "Emily":
+            "emily"
+        "Adam":
+            "adam"

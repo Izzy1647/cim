@@ -2,7 +2,7 @@ default nums = [2, 7, 11, 15]
 default output1 = [0, 1]
 default output2 = [1, 0]
 
-label markAdamTwoSum:
+label markAdamTwosum:
     menu:
         "Mark Adam's performance on twosum"
         "Very good":
@@ -17,6 +17,9 @@ label markAdamTwoSum:
             $ twosumMarkAdam = 1
 
     hide twosum sol adam wrong js
+    hide twosum sol adam wrong py
+    hide twosum sol adam wrong pseudo
+
     with dissolve
                 
     jump postTwosum
@@ -36,6 +39,9 @@ label markJoeTwoSum:
             $ twosumMarkJoe = 1
 
     hide twosum joe sol js
+    hide twosum joe sol py
+    hide twosum joe sol pseudo
+
     with dissolve
                 
     jump postTwosum
@@ -55,6 +61,8 @@ label markEmilyTwosum:
             $ twosumMarkEmily = 1
     
     hide twosum sol emily js
+    hide twosum sol emily py
+    hide twosum sol emily pseudo
 
     jump postTwosum
         
@@ -114,6 +122,14 @@ label twosumDeeperWithJoe:
             if language == 'js':
                 show twosum sol joe hashmap js at topright
                 with dissolve
+            
+            if language == 'python':
+                show twosum sol joe hashmap py at topright
+                with dissolve
+
+            if language == 'pseudo':
+                show twosum sol joe hashmap pseudo at topright
+                with dissolve
 
             j "So the time complexity is..." 
             j "Ummm..."
@@ -172,6 +188,14 @@ label twosum:
             show twosum sol joe bf js at topright
             with dissolve
 
+        if language == 'python':
+            show twosum sol joe bf py at topright
+            with dissolve
+
+        if language == 'pseudo':
+            show twosum sol joe bf pseudo at topright
+            with dissolve
+
         j "It's like a, umm..., very straight forward solution I think."
 
         menu:
@@ -209,6 +233,14 @@ label twosum:
 
         if language == 'js':
             show twosum sol emily js at topright
+            with dissolve
+
+        if language == 'python':
+            show twosum sol emily py at topright
+            with dissolve
+
+        if language == 'pseudo':
+            show twosum sol emily pseudo at topright
             with dissolve
 
         ""
@@ -265,6 +297,14 @@ label twosum:
         if language == 'js':
             show twosum sol adam wrong js at topright
             with dissolve
+
+        if language == 'python':
+            show twosum sol adam wrong py at topright
+            with dissolve
+
+        if language == 'pseudo':
+            show twosum sol adam wrong pseudo at topright
+            with dissolve
         
         menu:
             "Fine, mark Adam's solution on twosum":
@@ -284,7 +324,7 @@ label twosum:
                 a "Ah, yes. Then I will store the index instead of the value in the hash map."
                 m "Cool."
 
-                jump markAdamTwoSum
+                jump markAdamTwosum
 
 
         
