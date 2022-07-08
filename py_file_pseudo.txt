@@ -1,0 +1,49 @@
+DEFINE FUNCTION longestPalindrome(self, s: str) -> str:
+
+    SET n TO len(s)
+
+    IF n < 2:
+
+        RETURN s
+
+    SET max_len TO 1
+
+    SET begin TO 0
+
+    SET dp TO [[False] * n FOR _ IN range(n)]
+
+    FOR i IN range(n):
+
+        SET dp[i][i] TO True
+
+    FOR L IN range(2, n + 1):
+
+        FOR i IN range(n):
+
+            SET j TO L + i - 1
+
+            IF j >= n:
+
+                break
+
+            IF s[i] != s[j]:
+
+                SET dp[i][j] TO False
+
+            ELSE:
+
+                IF j - i < 3:
+
+                    SET dp[i][j] TO True
+
+                ELSE:
+
+                    SET dp[i][j] TO dp[i + 1][j - 1]
+
+            IF dp[i][j] and j - i + 1 > max_len:
+
+                SET max_len TO j - i + 1
+
+                SET begin TO i
+
+    RETURN s[begin:begin + max_len]

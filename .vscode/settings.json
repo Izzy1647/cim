@@ -1,5 +1,6 @@
 {
   "files.exclude": {
     "**/*.rpyc": true
-  }
+  },
+  "python.formatting.provider": "yapf"
 }
