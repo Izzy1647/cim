@@ -308,7 +308,10 @@ label ending:
     menu:
         "Joe":
             show screen report(candidate='Joe') 
+            ""
         "Emily":
-            "emily"
+            show screen report(candidate='Emily')
+            ""
         "Adam":
-            "adam"
+            show screen report(candidate='Adam')
+            ""
