@@ -138,6 +138,7 @@ label twosumDeeperWithJoe:
             show joe general close at left
             with dissolve
 
+            "You can read and evaluate the code now."
             "Now it's your time to mark Joe's performance."
 
             jump markJoeTwoSum
@@ -197,6 +198,7 @@ label twosum:
             with dissolve
 
         j "It's like a, umm..., very straight forward solution I think."
+        "You can read and evaluate the code now."
 
         menu:
             "Mark the solution right now":
@@ -243,8 +245,8 @@ label twosum:
             show twosum sol emily pseudo at topright
             with dissolve
 
-        ""
-
+        "You can read and evaluate the code now."
+        
         menu:
             "Mark the solution right now":
                 jump markEmilyTwosum
@@ -306,6 +308,8 @@ label twosum:
             show twosum sol adam wrong pseudo at topright
             with dissolve
         
+        "You can read and evaluate the code now."
+
         menu:
             "Fine, mark Adam's solution on twosum":
                 jump markAdamTwosum
@@ -325,6 +329,4 @@ label twosum:
                 m "Cool."
 
                 jump markAdamTwosum
-
-
         

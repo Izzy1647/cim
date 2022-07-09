@@ -49,6 +49,8 @@ label fizzbuzzcore:
 
         j "I assume it's a correct solution."
 
+        "You can read and evaluate the code now."
+
         "Now it's your time to mark Joe's solution."
 
         menu:
@@ -106,6 +108,8 @@ label fizzbuzzcore:
 
         show emily general close at left
         with dissolve
+
+        "You can read and evaluate the code now."
 
         menu:
             "Mark Emily's solution on fizzbuzz"
@@ -169,7 +173,8 @@ label fizzbuzzcore:
             show fizzbuzz sol adam wrong pseudo at topright
             with dissolve
 
-        ""
+        "You can read and evaluate the code now."
+        
         menu:
             "Fine, mark the solution now":
                 m "Okay."

@@ -185,7 +185,10 @@ label lpsJoeBfOptimization:
         with dissolve
     
     stop sound
+
     j "Okay... I think this works."
+
+    "You can read and evaluate the code now."
 
     menu:
         "Ask for a even faster solution":
@@ -309,6 +312,8 @@ label lps:
 
                 j "So it's just get all possible substrings and use isPalindrom function to check."
 
+                "You can read and evaluate the code now."
+                
                 menu:
                     "Fine, mark joe's solution now":
                         m "Yeah... looks fine."
@@ -358,6 +363,8 @@ label lps:
 
         m "Wow this is fast."
         e "Haha. I type fast."
+
+        "You can read and evaluate the code now."
         
         menu:
             "Mark the solution now":
@@ -451,6 +458,8 @@ label lps:
 
         show adam smile close at left
         with dissolve
+
+        "You can read and evaluate the code now."
 
         jump markAdamLps
 
