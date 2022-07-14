@@ -186,8 +186,8 @@ label postAdam:
         adamFeedbackPositive = renpy.input("Write down what Adam did great:", length=100)  
         adamFeedbackPositive = adamFeedbackPositive.strip()
 
-        adamFeedbackPositive = renpy.input("Write down what Adam did poorly:", length=100)  
-        adamFeedbackPositive = adamFeedbackPositive.strip()
+        adamFeedbackNegative= renpy.input("Write down what Adam did poorly:", length=100)  
+        adamFeedbackNegative = adamFeedbackNegative.strip()
     
     $ isAdam = False
     
@@ -295,6 +295,7 @@ label interviewAdam:
 
 
 label ending:
+    # "ee"
     show joe general at left
     with dissolve
 
@@ -304,6 +305,9 @@ label ending:
     show adam general at right
     with dissolve
 
+    # call screen ending_menu
+
+    ""
 
     menu:
         "Joe":
@@ -315,3 +319,14 @@ label ending:
         "Adam":
             show screen report(candidate='Adam')
             ""
+
+
+screen ending_menu():
+    # add "bg interview"
+    modal True
+
+    imagebutton auto "joe_general_%s":
+        # focus_mask True
+        hovered SetVariable("screen_tooltip", "Joe")
+        unhovered SetVariable("screen_tooltip", "")
+        action Jump("ending")
