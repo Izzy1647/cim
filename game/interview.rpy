@@ -364,13 +364,34 @@ label send_data:
 
     python:
         try:
-            response = requests.get("https://cim-be.cyclic.app/records")
+            data = {
+                "joeMarkTwoSum": twosumMarkJoe,
+                "joeMarkLps": lpsMarkJoe,
+                "joeMarkFizzbuzz": fizzbuzzMarkJoe,
+                "emilyMarkFizzbuzz": fizzbuzzMarkEmily,
+                "emilyMarkTwoSum": twosumMarkEmily,
+                "emilyMarkLps": lpsMarkEmily,
+                "adamMarkFizzbuzz": fizzbuzzMarkAdam,
+                "adamMarkTwoSum": twosumMarkAdam,
+                "adamMarkLps": lpsMarkAdam,
+                "joeFeedbackPositive": joeFeedbackPositive,
+                "emilyFeedbackPositive": emilyFeedbackPositive,
+                "adamFeedbackPositive": adamFeedbackPositive,
+                "joeFeedbackNegative": joeFeedbackNegative,
+                "adamFeedbackNegative": adamFeedbackNegative,
+                "emilyFeedbackNegative": emilyFeedbackNegative,
+                "decision": decision
+            }
+
+            r = requests.post("https://cim-be.cyclic.app/records", json=data)
+            
         except:
-            response = None
+            r = None
 
     hide text
 
-    "[response.text]"
+    "Thank you. You can visit .... to check the result."
+    
 
 
 label post_interview:

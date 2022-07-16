@@ -6,8 +6,8 @@ default fizzbuzzMarkJoe = -1
 default twosumMarkJoe = -1
 default lpsMarkJoe = -1
 
-default joeFeedbackPositive = ''
-default joeFeedbackNegative = ''
+default joeFeedbackPositive = 'default'
+default joeFeedbackNegative = 'default'
 
 # joe interview states
 default isJoe = False
@@ -23,8 +23,8 @@ default fizzbuzzMarkEmily = -1
 default twosumMarkEmily = -1
 default lpsMarkEmily = -1
 
-default emilyFeedbackPositive = ''
-default emilyFeedbackNegative = ''
+default emilyFeedbackPositive = 'default'
+default emilyFeedbackNegative = 'default'
 
 # adam interview states
 default isAdam = False
@@ -35,8 +35,8 @@ default fizzbuzzMarkAdam = -1
 default twosumMarkAdam = -1
 default lpsMarkAdam = -1
 
-default adamFeedbackPositive = ''
-default adamFeedbackNegative = ''
+default adamFeedbackPositive = 'default'
+default adamFeedbackNegative = 'default'
 
 
-default decision = ''
+default decision = 'joe'
