@@ -307,18 +307,22 @@ label ending:
 
     # call screen ending_menu
 
-    ""
+    
+    label candidates_menu:
+        menu:
+            "Joe":
+                show screen report(candidate='Joe') 
+                ""
+            "Emily":
+                show screen report(candidate='Emily')
+                ""
+            "Adam":
+                show screen report(candidate='Adam')
+                ""
 
-    menu:
-        "Joe":
-            show screen report(candidate='Joe') 
-            ""
-        "Emily":
-            show screen report(candidate='Emily')
-            ""
-        "Adam":
-            show screen report(candidate='Adam')
-            ""
+
+label decision:
+    "pass"
 
 
 screen ending_menu():

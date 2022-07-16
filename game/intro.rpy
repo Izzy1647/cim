@@ -37,7 +37,7 @@ label start:
     show boss serious close
     with dissolve
 
-    b "I want you to take good care of it and sort a really great coder for us."
+    b "I want you to take care of it and pick a really great coder for us."
     b "Whoever you pick will be working with you in your group."
 
 
@@ -46,8 +46,8 @@ label start:
         with dissolve
         "I think I can handle it.":
             jump agree
-        "Umm I don't know if I can handle this.":
-            jump drop
+        # "Umm I don't know if I can handle this.":
+        #     jump drop
             #block of code to run
 
 label agree:
