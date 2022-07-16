@@ -37,3 +37,6 @@ default lpsMarkAdam = -1
 
 default adamFeedbackPositive = ''
 default adamFeedbackNegative = ''
+
+
+default decision = ''

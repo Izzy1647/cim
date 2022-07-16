@@ -295,7 +295,6 @@ label interviewAdam:
 
 
 label ending:
-    # "ee"
     show joe general at left
     with dissolve
 
@@ -322,15 +321,68 @@ label ending:
 
 
 label decision:
+    "Now it's your time to make the final decision on who to hire."
+    menu:
+        "I'm ready":
+            jump decision_menu
+                
+        "I want to revisit the overviews":
+            jump candidates_menu
+    
+    label decision_menu:
+        menu:
+            "Choose from the menu above."
+            "Joe":
+                $ decision = 'joe'
+            "Emily":
+                $ decision = 'emily'
+            "Adam":
+                $ decision = 'adam'
+        
+        hide joe general with dissolve
+        hide emily general with dissolve
+        hide adam general with dissolve
+
+        
+        "Are you willing to share your in-game marks and decisions with us, 
+        just for the use of research and discussion? 
+        No personal data has been collected."
+
+        menu:
+            "Yes":
+                jump send_data
+            "No":
+                jump post_interview
+
+
+label send_data:
+    init python:
+        import requests
+
+    show text "Please wait..."
+    pause 0
+
+    python:
+        try:
+            response = requests.get("https://cim-be.cyclic.app/records")
+        except:
+            response = None
+
+    hide text
+
+    "[response.text]"
+
+
+label post_interview:
     "pass"
 
 
-screen ending_menu():
-    # add "bg interview"
-    modal True
+# screen ending_menu():
+#     # add "bg interview"
+#     modal True
 
-    imagebutton auto "joe_general_%s":
-        # focus_mask True
-        hovered SetVariable("screen_tooltip", "Joe")
-        unhovered SetVariable("screen_tooltip", "")
-        action Jump("ending")
+#     imagebutton auto "joe_general_%s":
+#         # focus_mask True
+#         hovered SetVariable("screen_tooltip", "Joe")
+#         unhovered SetVariable("screen_tooltip", "")
+#         action Jump("ending")
