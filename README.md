@@ -1,4 +1,4 @@
-# sim
+# cim
 
 An interactive fiction game on coding interview simulation.
 
