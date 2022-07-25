@@ -229,76 +229,6 @@ label postAdam:
     call bridge(candidate='adam')
 
     call expression interviews[idx + 1]
-    
-
-label bridge(candidate='joe'):
-    show boss happy close
-    with dissolve
-
-    if candidate == 'joe':
-        b "How's it going on? You feeling alright?"
-        m "Yeah, I'm good."
-        b "How's Joe? Good?"
-        menu:
-            "Good":
-                m "Yes, he's good."
-                b "Nice. The next candidate will be here soon."
-                hide boss happy close
-                with dissolve
-            "Not so good":
-                m "Hmm, can't say that."
-                show boss surprise close
-                with dissolve
-                b "Okay. The next candidate will be here soon."
-                hide boss surprise close
-                with dissolve
-        
-    
-    if candidate == 'emily':
-        b "How's Emily?"
-        menu:
-            "Good":
-                m "She's great."
-                b "That's nice to hear."
-                b "Get prepared for the net candidate."
-
-                hide boss happy close
-                with dissolve
-
-            "Not so good":
-                m "Can't say she's good."
-
-                show boss serious close
-                with dissolve
-
-                b "Hmm okay, just make sure to use your best judgment."
-                m "Will do."
-
-                hide boss serious close
-                with dissolve
-
-    if candidate == 'adam':
-        b "How's Adam?"
-        menu:
-            "Good":
-                m "Good."
-                b "Not bad."
-                b "The next candidate will be here in a minute."
-
-                hide boss happy close
-                with dissolve
-
-            "Not so good":
-                m "Not so good."
-
-                show boss serious close
-                with dissolve
-
-                b "Okay, it's fine. Hope we have a better candidate very soon."
-                m "Yes."
-
-                hide boss serious close
-                with dissolve
 
 
 label interviewEmily:
@@ -446,12 +376,84 @@ label send_data:
 
     hide text
 
-    "Thank you. You can visit ..pass.. to check the result."
+    "Thank you. You can visit {a=https://cim-analysis-fe.vercel.app}the website{/a} to check the stats."
     
 
 
 label post_interview:
     "pass"
+
+
+
+
+label bridge(candidate='joe'):
+    show boss happy close
+    with dissolve
+
+    if candidate == 'joe':
+        b "How's it going on? You feeling alright?"
+        m "Yeah, I'm good."
+        b "How's Joe? Good?"
+        menu:
+            "Good":
+                m "Yes, he's good."
+                b "Nice. The next candidate will be here soon."
+                hide boss happy close
+                with dissolve
+            "Not so good":
+                m "Hmm, can't say that."
+                show boss surprise close
+                with dissolve
+                b "Okay. The next candidate will be here soon."
+                hide boss surprise close
+                with dissolve
+        
+    
+    if candidate == 'emily':
+        b "How's Emily?"
+        menu:
+            "Good":
+                m "She's great."
+                b "That's nice to hear."
+                b "Get prepared for the net candidate."
+
+                hide boss happy close
+                with dissolve
+
+            "Not so good":
+                m "Can't say she's good."
+
+                show boss serious close
+                with dissolve
+
+                b "Hmm okay, just make sure to use your best judgment."
+                m "Will do."
+
+                hide boss serious close
+                with dissolve
+
+    if candidate == 'adam':
+        b "How's Adam?"
+        menu:
+            "Good":
+                m "Good."
+                b "Not bad."
+                b "The next candidate will be here in a minute."
+
+                hide boss happy close
+                with dissolve
+
+            "Not so good":
+                m "Not so good."
+
+                show boss serious close
+                with dissolve
+
+                b "Okay, it's fine. Hope we have a better candidate very soon."
+                m "Yes."
+
+                hide boss serious close
+                with dissolve
 
 
 # screen ending_menu():

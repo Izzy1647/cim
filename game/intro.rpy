@@ -1,4 +1,24 @@
-﻿# The game starts here.
+﻿image purple:
+    "#6b2c90"
+
+image logo:
+    contains:
+        "images/uom-logo.png"
+        truecenter
+
+label before_main_menu:
+    scene purple
+    show logo
+    with dissolve
+
+    $ renpy.pause(2.0, hard=True)
+
+    hide logo
+    with dissolve
+
+    return
+
+# The game starts here.
 
 label start:
 
