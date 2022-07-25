@@ -20,7 +20,11 @@ label preInterview:
     with fadehold
     "Next day, 1pm"
 
-    jump interviewjoe
+    python:
+        interviews = ["interviewjoe", "interviewEmily", "interviewAdam"]
+        renpy.random.shuffle(interviews)
+        
+    call expression interviews[0]
 
 
 # joe: he seems nervous but he actually does well on these questions
@@ -151,9 +155,19 @@ label postJoe:
     
     $ isJoe = False
     
+
+    python:
+        idx = interviews.index('interviewjoe')
+
+    if idx == 2:
+        jump ending
+
     "It's break time!"
-    
+
     call bridge(candidate='joe') from _call_bridge
+    
+    call expression interviews[idx + 1]
+    
 
 
 label postEmily:
@@ -173,10 +187,20 @@ label postEmily:
         emilyFeedbackNegative = emilyFeedbackNegative.strip()
     
     $ isEmily = False
+
+    python:
+        idx = interviews.index('interviewEmily')
+
+    if idx == 2:
+        jump ending
     
     "It's break time!"
-    
+
     call bridge(candidate='emily') from _call_bridge_1
+
+    call expression interviews[idx + 1]
+    
+    
     
 label postAdam:
     m "It's all for today, thank you for your time."
@@ -195,11 +219,17 @@ label postAdam:
         adamFeedbackNegative = adamFeedbackNegative.strip()
     
     $ isAdam = False
+
+    python:
+        idx = interviews.index('interviewAdam')
+
+    if idx == 2:
+        jump ending
     
-    "This is all three candidates for today."
-    "Now you can check all marks and reviews you made on three candidates, and make your final decision on who to employ."
+    call bridge(candidate='adam')
+
+    call expression interviews[idx + 1]
     
-    call ending from _call_ending
 
 label bridge(candidate='joe'):
     show boss happy close
@@ -208,22 +238,21 @@ label bridge(candidate='joe'):
     if candidate == 'joe':
         b "How's it going on? You feeling alright?"
         m "Yeah, I'm good."
-        b "How's the last candidate? Good?"
+        b "How's Joe? Good?"
         menu:
             "Good":
-                m "Yes, he's good. But there are still two remaining."
-                b "Yes, sure. The second candidate will be here soon."
+                m "Yes, he's good."
+                b "Nice. The next candidate will be here soon."
                 hide boss happy close
                 with dissolve
             "Not so good":
                 m "Hmm, can't say that."
                 show boss surprise close
                 with dissolve
-                b "Okay, luckily we have two candidates remaining. Buckle up buddy!"
+                b "Okay. The next candidate will be here soon."
                 hide boss surprise close
                 with dissolve
         
-        jump interviewEmily
     
     if candidate == 'emily':
         b "How's Emily?"
@@ -231,8 +260,7 @@ label bridge(candidate='joe'):
             "Good":
                 m "She's great."
                 b "That's nice to hear."
-                b "Adam will be here soon."
-                m "Okay."
+                b "Get prepared for the net candidate."
 
                 hide boss happy close
                 with dissolve
@@ -249,8 +277,28 @@ label bridge(candidate='joe'):
                 hide boss serious close
                 with dissolve
 
-        jump interviewAdam
-        
+    if candidate == 'adam':
+        b "How's Adam?"
+        menu:
+            "Good":
+                m "Good."
+                b "Not bad."
+                b "The next candidate will be here in a minute."
+
+                hide boss happy close
+                with dissolve
+
+            "Not so good":
+                m "Not so good."
+
+                show boss serious close
+                with dissolve
+
+                b "Okay, it's fine. Hope we have a better candidate very soon."
+                m "Yes."
+
+                hide boss serious close
+                with dissolve
 
 
 label interviewEmily:
@@ -300,6 +348,9 @@ label interviewAdam:
 
 
 label ending:
+    "This is all three candidates for today."
+    "Now you can check all marks and reviews you made on three candidates, and make your final decision on who to employ."
+
     show joe general at left
     with dissolve
 

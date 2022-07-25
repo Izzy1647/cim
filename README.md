@@ -5,7 +5,7 @@ An interactive fiction game on coding interview simulation.
 ## To-do
 - Random character generation (coding capability, apperance, personality)
 
-- Random order of three candidates
+- Random order of three candidates 🆗
 
 - Music on/off switch 🆗
 
@@ -23,9 +23,9 @@ An interactive fiction game on coding interview simulation.
 
 - Keyboard typing sound modification 🆗
 
-- why picking the candidate
+- Choices on why picking the candidate
 
-- lead player back to literature afterawrds
+- Lead player back to literature afterawrds
 
 - Play recorded human audio for a better simulation??
 Articles about accent effect in interviews:
