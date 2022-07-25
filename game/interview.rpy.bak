@@ -48,7 +48,7 @@ label interviewjoe:
 
     menu:
         "Start with a brief self introduction":
-            call selfintro(candidate='Joe') from _call_selfintro
+            call selfintro(candidate='Joe')
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
 
@@ -153,7 +153,7 @@ label postJoe:
     
     "It's break time!"
     
-    call bridge(candidate='joe') from _call_bridge
+    call bridge(candidate='joe')
 
 
 label postEmily:
@@ -176,7 +176,7 @@ label postEmily:
     
     "It's break time!"
     
-    call bridge(candidate='emily') from _call_bridge_1
+    call bridge(candidate='emily')
     
 label postAdam:
     m "It's all for today, thank you for your time."
@@ -199,7 +199,7 @@ label postAdam:
     "This is all three candidates for today."
     "Now you can check all marks and reviews you made on three candidates, and make your final decision on who to employ."
     
-    call ending from _call_ending
+    call ending
 
 label bridge(candidate='joe'):
     show boss happy close
@@ -269,7 +269,7 @@ label interviewEmily:
 
     menu:
         "Start with a brief self introduction":
-            call selfintro(candidate='Emily') from _call_selfintro_1
+            call selfintro(candidate='Emily')
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
 
@@ -294,7 +294,7 @@ label interviewAdam:
 
     menu:
         "Start with a brief self introduction":
-            call selfintro(candidate='Adam') from _call_selfintro_2
+            call selfintro(candidate='Adam')
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
 

@@ -119,15 +119,15 @@ label twosumDeeperWithJoe:
 
             j "I think I got it... Check it out."
 
-            if language == 'js':
+            if programmingLanguage == 'js':
                 show twosum sol joe hashmap js at topright
                 with dissolve
             
-            if language == 'python':
+            if programmingLanguage == 'python':
                 show twosum sol joe hashmap py at topright
                 with dissolve
 
-            if language == 'pseudo':
+            if programmingLanguage == 'pseudo':
                 show twosum sol joe hashmap pseudo at topright
                 with dissolve
 
@@ -185,15 +185,15 @@ label twosum:
 
         j "Hmm, here it is."
 
-        if language == 'js':
+        if programmingLanguage == 'js':
             show twosum sol joe bf js at topright
             with dissolve
 
-        if language == 'python':
+        if programmingLanguage == 'python':
             show twosum sol joe bf py at topright
             with dissolve
 
-        if language == 'pseudo':
+        if programmingLanguage == 'pseudo':
             show twosum sol joe bf pseudo at topright
             with dissolve
 
@@ -233,15 +233,15 @@ label twosum:
 
         e "Here, check it out!"
 
-        if language == 'js':
+        if programmingLanguage == 'js':
             show twosum sol emily js at topright
             with dissolve
 
-        if language == 'python':
+        if programmingLanguage == 'python':
             show twosum sol emily py at topright
             with dissolve
 
-        if language == 'pseudo':
+        if programmingLanguage == 'pseudo':
             show twosum sol emily pseudo at topright
             with dissolve
 
@@ -296,15 +296,15 @@ label twosum:
 
         a "Check it out."
 
-        if language == 'js':
+        if programmingLanguage == 'js':
             show twosum sol adam wrong js at topright
             with dissolve
 
-        if language == 'python':
+        if programmingLanguage == 'python':
             show twosum sol adam wrong py at topright
             with dissolve
 
-        if language == 'pseudo':
+        if programmingLanguage == 'pseudo':
             show twosum sol adam wrong pseudo at topright
             with dissolve
         

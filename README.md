@@ -13,7 +13,7 @@ An interactive fiction game on coding interview simulation.
 
 - Image button for report selection
 
-- Marking and report system
+- Marking and report system 🆗
 
 - Co-interviewers (possibly using pop up dialogue)
 
@@ -22,6 +22,10 @@ An interactive fiction game on coding interview simulation.
 - Modify question list menu structure
 
 - Keyboard typing sound modification 🆗
+
+- why picking the candidate
+
+- lead player back to literature afterawrds
 
 - Play recorded human audio for a better simulation??
 Articles about accent effect in interviews:

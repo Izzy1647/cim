@@ -1,5 +1,5 @@
 # game config
-default language = 'js'
+default programmingLanguage = 'js'
 
 # joe interview evaluation:
 default fizzbuzzMarkJoe = -1

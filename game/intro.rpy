@@ -5,11 +5,11 @@ label start:
     menu:
         "Set your preferred programming language"
         "Python":
-            $ language = 'python'
+            $ programmingLanguage = 'python'
         "JavaScript":
-            $ language = 'js'
+            $ programmingLanguage = 'js'
         "Pseudocode":
-            $ language = 'pseudo'
+            $ programmingLanguage = 'pseudo'
 
 
     show screen musicSwitchButton

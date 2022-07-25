@@ -135,15 +135,15 @@ label lpsJoeBfOptimization:
 
     j "So first of all I have a function for expanding the string."
 
-    if language == 'js':
+    if programmingLanguage == 'js':
         show expand string joe js at topright
         with dissolve
 
-    if language == 'python':
+    if programmingLanguage == 'python':
         show expand string joe py at topright
         with dissolve
     
-    if language == 'pseudo':
+    if programmingLanguage == 'pseudo':
         show expand string joe pseudo at topright
         with dissolve
     
@@ -172,15 +172,15 @@ label lpsJoeBfOptimization:
     hide expand string joe pseudo
 
 
-    if language == 'js':
+    if programmingLanguage == 'js':
         show lps sol joe expand js at topright
         with dissolve
     
-    if language == 'python':
+    if programmingLanguage == 'python':
         show lps sol joe expand py at topright
         with dissolve
     
-    if language == 'pseudo':
+    if programmingLanguage == 'pseudo':
         show lps sol joe expand pseudo at topright
         with dissolve
     
@@ -259,15 +259,15 @@ label lps:
 
                 stop sound
 
-                if language == 'js':
+                if programmingLanguage == 'js':
                     show ispalindromic joe js at topright
                     with dissolve
                 
-                if language == 'python':
+                if programmingLanguage == 'python':
                     show ispalindromic joe py at topright
                     with dissolve
                 
-                if language == 'pseudo':
+                if programmingLanguage == 'pseudo':
                     show ispalindromic joe pseudo at topright
                     with dissolve
 
@@ -298,15 +298,15 @@ label lps:
                 hide ispalindromic joe pseudo with dissolve
 
 
-                if language == 'js':
+                if programmingLanguage == 'js':
                     show lps sol joe bf js at topright
                     with dissolve
                 
-                if language == 'python':
+                if programmingLanguage == 'python':
                     show lps sol joe bf py at topright
                     with dissolve
                 
-                if language == 'pseudo':
+                if programmingLanguage == 'pseudo':
                     show lps sol joe bf pseudo at topright
                     with dissolve
 
@@ -349,15 +349,15 @@ label lps:
 
         e "I think I got it, look."
 
-        if language == 'js':
+        if programmingLanguage == 'js':
             show lps sol emily expand js at topright
             with dissolve
         
-        if language == 'python':
+        if programmingLanguage == 'python':
             show lps sol emily expand py at topright
             with dissolve
         
-        if language == 'pseudo':
+        if programmingLanguage == 'pseudo':
             show lps sol emily expand pseudo at topright
             with dissolve
 
@@ -439,15 +439,15 @@ label lps:
 
         a "Okay, finally, check it out."
 
-        if language == 'js':
+        if programmingLanguage == 'js':
             show lps sol adam js at topright
             with dissolve
         
-        if language == 'python':
+        if programmingLanguage == 'python':
             show lps sol adam py at topright
             with dissolve
         
-        if language == 'pseudo':
+        if programmingLanguage == 'pseudo':
             show lps sol adam pseudo at topright
             with dissolve
 
