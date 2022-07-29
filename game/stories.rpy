@@ -42,3 +42,32 @@ label emilyStory:
     with fadehold
 
     "This is how she manage to write code so fast and so confident during the interview: an extremely well preparer."
+
+    stop music fadeout 4.0
+
+    return
+
+
+label emilyInWork:
+    # play music '/audio/emilyWorkBgm.mp3'
+
+    scene bg workplace
+    with fadehold
+
+    "Without taking traditional CS courses, Emily lacks understanding in both external and internal quality of software."
+    "Emily doesn't have any idea on how to design and write unit test cases, so she always turn to you for help."
+    "However, as you are not the author of the code, you have to first spend some time on understanding the logic, then design the unit tests."
+    "It makes the whole process more time-consuming."
+
+    scene bg emily code
+    with fadehold
+
+    "Also, Emily has a very weak sense of clean code, making her code heavy, repetitive, and hard to read or understand."
+    "Emily always choose the easy way of implementing, but not the elegant way, introducing lots of technical debt into the codebase."
+    "Huge amount of time are spent for reviewing and refactoring."
+
+    "As a matter of fact, these abilities are very hard to evaluate in coding interviews."
+
+    return
+
+    

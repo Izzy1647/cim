@@ -332,20 +332,7 @@ label decision:
         scene bg report
         with fadehold
 
-
         "Why do you choose [decision]?"
-
-        # if decision == 'adam':
-        #     show adam general close at right
-        #     with dissolve
-        
-        # if decision == 'joe':
-        #     show joe general
-        #     with dissolve
-        
-        # if decision == 'emily':
-        #     show emily general
-        #     with dissolve
 
 
         "Select the factor that you think matters the most in the menu."
@@ -362,6 +349,8 @@ label decision:
             "Gender: I need a female engineer in my group" if decision == 'emily':
                 $ reason = 'gender'
         
+        # post plots & educational chapter based on player's decision
+        
         if decision == 'emily' and reason == 'ability':
             call emilyStory
 
@@ -372,9 +361,25 @@ label decision:
                 "Now, knowing how Emily manage to perform well in the interview, will you change your mind?"
                 "Yes":
                     "dd"
-                    
+
                 "No":
-                    ""
+                    scene bg office
+                    with fadehold
+
+                    "It's always hard to give up a well-performing candidate like Emily."
+                    "Let's take a look at how Emily performs in work."
+
+                    call emilyInWork
+
+                    menu:
+                        "Would you like to make another pick on who to hire?"
+                        "Yes":
+                            jump decision_menu
+                        "No":
+                            jump send_data
+                            
+
+                    
         
         
 
