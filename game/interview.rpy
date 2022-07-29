@@ -317,7 +317,7 @@ label decision:
     
     label decision_menu:
         menu:
-            "Choose from the menu above."
+            "Choose from the menu above. Who will you pick?"
             "Joe":
                 $ decision = 'joe'
             "Emily":
@@ -329,55 +329,109 @@ label decision:
         hide emily general with dissolve
         hide adam general with dissolve
 
+        scene bg report
+        with fadehold
+
+
+        "Why do you choose [decision]?"
+
+        # if decision == 'adam':
+        #     show adam general close at right
+        #     with dissolve
         
-        "Are you willing to share your in-game marks and decisions with us, 
-        just for the use of research and discussion? 
-        No personal data has been collected."
+        # if decision == 'joe':
+        #     show joe general
+        #     with dissolve
+        
+        # if decision == 'emily':
+        #     show emily general
+        #     with dissolve
+
+
+        "Select the factor that you think matters the most in the menu."
 
         menu:
-            "Yes":
-                jump send_data
-            "No":
-                jump post_interview
+            "Appearence: he's really appealing!" if decision == 'joe' or decision == 'adam':
+                $ reason = 'appearance'
+            "Appearence: she's really appealing!" if decision == 'emily':
+                $ reason = 'appearance'
+            "Coding ability: bug free code during the interview":
+                $ reason = 'ability'
+            "Vibe: I like how we interact":
+                $ reason = 'vibe'
+            "Gender: I need a female engineer in my group" if decision == 'emily':
+                $ reason = 'gender'
+        
+        if decision == 'emily' and reason == 'ability':
+            call emilyStory
+
+            scene bg report
+            with fadehold
+
+            menu:
+                "Now, knowing how Emily manage to perform well in the interview, will you change your mind?"
+                "Yes":
+                    "dd"
+                    
+                "No":
+                    ""
+        
+        
+
+        jump send_data
+
+        
+        
 
 
 label send_data:
-    init python:
-        import requests
+    "Are you willing to share your in-game marks and decisions with us, 
+    just for the use of research and discussion? 
+    No personal data has been collected."
 
-    show text "Please wait..."
-    pause 0
+    menu:
+        "Yes":
+            jump send
+        "No":
+            jump post_interview
 
-    python:
-        try:
-            data = {
-                "joeMarkTwoSum": twosumMarkJoe,
-                "joeMarkLps": lpsMarkJoe,
-                "joeMarkFizzbuzz": fizzbuzzMarkJoe,
-                "emilyMarkFizzbuzz": fizzbuzzMarkEmily,
-                "emilyMarkTwoSum": twosumMarkEmily,
-                "emilyMarkLps": lpsMarkEmily,
-                "adamMarkFizzbuzz": fizzbuzzMarkAdam,
-                "adamMarkTwoSum": twosumMarkAdam,
-                "adamMarkLps": lpsMarkAdam,
-                "joeFeedbackPositive": joeFeedbackPositive,
-                "emilyFeedbackPositive": emilyFeedbackPositive,
-                "adamFeedbackPositive": adamFeedbackPositive,
-                "joeFeedbackNegative": joeFeedbackNegative,
-                "adamFeedbackNegative": adamFeedbackNegative,
-                "emilyFeedbackNegative": emilyFeedbackNegative,
-                "decision": decision
-            }
+    label send:
+        init python:
+            import requests
 
-            r = requests.post("https://cim-be.cyclic.app/records", json=data)
-            
-        except:
-            r = None
+        show text "Please wait..."
+        pause 0
 
-    hide text
+        python:
+            try:
+                data = {
+                    "joeMarkTwoSum": twosumMarkJoe,
+                    "joeMarkLps": lpsMarkJoe,
+                    "joeMarkFizzbuzz": fizzbuzzMarkJoe,
+                    "emilyMarkFizzbuzz": fizzbuzzMarkEmily,
+                    "emilyMarkTwoSum": twosumMarkEmily,
+                    "emilyMarkLps": lpsMarkEmily,
+                    "adamMarkFizzbuzz": fizzbuzzMarkAdam,
+                    "adamMarkTwoSum": twosumMarkAdam,
+                    "adamMarkLps": lpsMarkAdam,
+                    "joeFeedbackPositive": joeFeedbackPositive,
+                    "emilyFeedbackPositive": emilyFeedbackPositive,
+                    "adamFeedbackPositive": adamFeedbackPositive,
+                    "joeFeedbackNegative": joeFeedbackNegative,
+                    "adamFeedbackNegative": adamFeedbackNegative,
+                    "emilyFeedbackNegative": emilyFeedbackNegative,
+                    "decision": decision
+                }
 
-    "Thank you. You can visit {a=https://cim-analysis-fe.vercel.app}the website{/a} to check the stats."
-    
+                r = requests.post("https://cim-be.cyclic.app/records", json=data)
+                
+            except:
+                r = None
+
+        hide text
+
+        "Thank you. You can visit {a=https://cim-analysis-fe.vercel.app}the website{/a} to check the statisitics."
+        
 
 
 label post_interview:
