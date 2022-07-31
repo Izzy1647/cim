@@ -49,7 +49,7 @@ label emilyStory:
 
 
 label emilyInWork:
-    # play music '/audio/emilyWorkBgm.mp3'
+    play music '/audio/emilyWorkBgm.mp3'
 
     scene bg workplace
     with fadehold
@@ -67,6 +67,8 @@ label emilyInWork:
     "Huge amount of time are spent for reviewing and refactoring."
 
     "As a matter of fact, these abilities are very hard to evaluate in coding interviews."
+
+    stop music fadeout 2.0
 
     return
 
