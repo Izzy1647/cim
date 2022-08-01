@@ -1,6 +1,9 @@
 # game config
 default programmingLanguage = 'js'
 
+# if it's player's first pick
+default isFirst = True
+
 # joe interview evaluation:
 default fizzbuzzMarkJoe = -1
 default twosumMarkJoe = -1

@@ -342,7 +342,8 @@ label decision:
         hide emily general with dissolve
         hide adam general with dissolve
 
-        call send_data
+        if isFirst:
+            call send_data
 
         scene bg report
         with fadehold
@@ -391,6 +392,7 @@ label decision:
                     menu:
                         "Would you like to make another pick on who to hire?"
                         "Yes":
+                            $ isFirst = False
                             jump decision_menu
                         "No":
                             jump game_ending
@@ -447,6 +449,7 @@ label decision:
             menu:
                 "Would you like to make another pick on who to hire?"
                 "Yes":
+                    $ isFirst = False
                     jump decision_menu
                 "No":
                     jump game_ending
@@ -623,6 +626,8 @@ label bridge(candidate='joe'):
 
                 hide boss serious close
                 with dissolve
+    
+    return
 
 
 # screen ending_menu():
