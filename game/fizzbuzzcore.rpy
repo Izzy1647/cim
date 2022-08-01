@@ -201,6 +201,8 @@ label fizzbuzzcore:
                 ""
                 
                 jump markAdamFizzbuzz
+    
+    return
 
 label markAdamFizzbuzz:
     menu:

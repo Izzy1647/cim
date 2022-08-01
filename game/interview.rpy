@@ -26,6 +26,8 @@ label preInterview:
         
     call expression interviews[0]
 
+    return
+
 
 # joe: he seems nervous but he actually does well on these questions
 label interviewjoe:
@@ -55,6 +57,8 @@ label interviewjoe:
             call selfintro(candidate='Joe') from _call_selfintro
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
+    
+    return
 
 label prefizzbuzz:
     m "Let's solve a coding problem really fast, okay?"
@@ -99,8 +103,7 @@ label postfizzbuzz(mark='good', candidate=''):
                 "Two Sum":
                     jump twosum
                 "Longest Palindromic Substring":
-                    jump lps
-    
+                    jump lps    
 
 label postTwosum:
     if isJoe:
@@ -167,6 +170,8 @@ label postJoe:
     call bridge(candidate='joe') from _call_bridge
     
     call expression interviews[idx + 1]
+
+    return
     
 
 
@@ -199,6 +204,8 @@ label postEmily:
     call bridge(candidate='emily') from _call_bridge_1
 
     call expression interviews[idx + 1]
+
+    return
     
     
     
@@ -230,6 +237,8 @@ label postAdam:
 
     call expression interviews[idx + 1]
 
+    return
+
 
 label interviewEmily:
     $ isEmily = True
@@ -250,6 +259,8 @@ label interviewEmily:
             call selfintro(candidate='Emily') from _call_selfintro_1
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
+    
+    return
 
 
 label interviewAdam:
@@ -275,6 +286,8 @@ label interviewAdam:
             call selfintro(candidate='Adam') from _call_selfintro_2
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
+    
+    return
 
 
 label ending:
@@ -329,16 +342,18 @@ label decision:
         hide emily general with dissolve
         hide adam general with dissolve
 
+        call send_data
+
         scene bg report
         with fadehold
 
-        "Why do you choose [decision]?"
+        "Now let's get back to your selection. Why do you choose [decision]?"
 
 
         "Select the factor that you think matters the most in the menu."
 
         menu:
-            "Appearence: he's really appealing!" if decision == 'joe' or decision == 'adam':
+            "Appearence: he looks like a good engineer!" if decision == 'joe' or decision == 'adam':
                 $ reason = 'appearance'
             "Appearence: she's really appealing!" if decision == 'emily':
                 $ reason = 'appearance'
@@ -347,6 +362,8 @@ label decision:
             "Vibe: I like how we interact":
                 $ reason = 'vibe'
             "Gender: I need a female engineer in my group" if decision == 'emily':
+                $ reason = 'gender'
+            "Gender: male engineers are more capable" if decision == 'joe' or decision == 'adam':
                 $ reason = 'gender'
         
         # post plots & educational chapter based on player's decision
@@ -360,7 +377,7 @@ label decision:
             menu:
                 "Now, knowing how Emily manage to perform well in the interview, will you change your mind?"
                 "Yes":
-                    "dd"
+                    jump decision_menu
 
                 "No":
                     scene bg office
@@ -376,14 +393,105 @@ label decision:
                         "Yes":
                             jump decision_menu
                         "No":
-                            jump send_data
-                            
+                            jump game_ending
 
+
+        if reason == 'appearance':
+            scene bg caution
+            with fadehold
+
+            "Careful, {b}Attractiveness Bias{/b} may have affected your judgment." 
+            "Attractive bias during interview is widely researched."
+
+            show attractiveness1 at topleft
+            with dissolve
+
+            ""
+
+            show attractiveness2 at topright
+            with dissolve
+
+            ""
+
+            show attractiveness3 at top
+            with dissolve
+
+            ""
+
+            "And so many on..."
+
+            hide attractiveness2 with dissolve
+            hide attractiveness3 with dissolve
+
+            "Take the article {a=https://www.researchgate.net/publication/247808468_Attractiveness_Bias_in_the_Interview_Exploring_the_Boundaries_of_an_Effect} Attractiveness Bias in the Interview: Exploring the Boundaries of an Effect{/a} as an example."
+            
+            show attractiveness conclusion at topright
+            with dissolve
+
+            "Attractive applicants in the study tended to be evaluated by interviewers as having higher qualifications than unattractive applicants."
+
+            # hide attractiveness conclusion
+
+            # show attractiveness conclusion2 at topright
+            # with dissolve
+
+            # "But in the final decision stage, attractiveness doesn't have a significant effect."
+
+            # "However in a job intercie"
+            
+            scene bg nerd
+            with fadehold
+
+            "In IT industry sometimes it can even be the opposite: applicants with 'nerdy' appearance may be considered as better engineers."
+
+            menu:
+                "Would you like to make another pick on who to hire?"
+                "Yes":
+                    jump decision_menu
+                "No":
+                    jump game_ending
                     
         
+        if reason == 'gender':
+            scene bg sex roles
+            with fadehold
+
+            "Careful, {b}Sex Role Stereotypes{/b} may have affected your judgment."
+            "Lots of reaserches have discussed sex role stereotypes during interview."
+            
+            show sex1 at topleft
+            with dissolve
+
+            ""
+
+            show sex2 at topright
+            with dissolve
+
+            ""
+
+            show sex3 at top
+            with dissolve
+
+            ""
+
+            "And so many other researches..."
+
+            scene bg kin
+            with fadehold
+
+            "Traditionally people tend to believe that compared with men, women are more suitable for jobs like nurse, flight attendent, kindergartner, etc."
+
+            scene bg se office
+            with fadehold
+
+            "Whereas in IT industry, software engineer is recogized as a male-dominant job."
+
+            
+            
+            
         
 
-        jump send_data
+        jump game_ending
 
         
         
@@ -398,7 +506,7 @@ label send_data:
         "Yes":
             jump send
         "No":
-            jump post_interview
+            return
 
     label send:
         init python:
@@ -436,6 +544,8 @@ label send_data:
         hide text
 
         "Thank you. You can visit {a=https://cim-analysis-fe.vercel.app}the website{/a} to check the statisitics."
+
+        return
         
 
 
@@ -524,3 +634,9 @@ label bridge(candidate='joe'):
 #         hovered SetVariable("screen_tooltip", "Joe")
 #         unhovered SetVariable("screen_tooltip", "")
 #         action Jump("ending")
+
+
+label game_ending:
+    "Game ending"
+
+    $ MainMenu(confirm=False)()
