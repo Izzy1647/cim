@@ -488,12 +488,55 @@ label decision:
             with fadehold
 
             "Whereas in IT industry, software engineer is recogized as a male-dominant job."
+            "When facing two almost equally capabale candidates, interviewers are likely to consider male as the better engineer."
 
-            
-            
-            
+            "However on the other side, as there are not many female engineers in the industry, sometimes interviwers prefer female candidates as a means of balance."
+            "Cases indicate that some companies will even lower the bar for female candidates."
+            "Either way, it's not fair."
+
+            menu:
+                "Would you like to make another pick on who to hire?"
+                "Yes":
+                    $ isFirst = False
+                    jump decision_menu
+                "No":
+                    jump game_ending
+
         
+        if reason == 'vibe':
+            scene bg communicate
+            with fadehold
 
+            "Communicating is an important skill, and it's always great to work with somebody that you can come along well."
+
+            show accents1 at topleft
+            with dissolve
+
+            "Did you know ...? Research shows that accents can impact perceptions of an interviewee."
+            "The research asked participants to make a hiring recommendation 
+            and to evaluate personal characteristics of a male applicant for a human resource position
+            after hearing a portion of an interview."
+            "Measures include hiring recommendation, similarity, understandability and accentedness."
+
+            show accents2 at topright
+            with dissolve
+
+            "Results show that decision makers are likely to view persons with different accents as different from themselves, and consequently to evaluate them negatively."
+
+            scene bg talk
+            with fadehold
+
+            "Surprisingly, hiring decisions can be affected by subtle and tech-irrelevant factors like accents."
+
+            menu:
+                "Would you like to make another pick on who to hire?"
+                "Yes":
+                    $ isFirst = False
+                    jump decision_menu
+                "No":
+                    jump game_ending
+    
+        
         jump game_ending
 
         
@@ -642,6 +685,7 @@ label bridge(candidate='joe'):
 
 
 label game_ending:
+    "For all literatures used in the game, please visit {a}url{/a} to see the list of reference and the full article."
     "Game ending"
 
     $ MainMenu(confirm=False)()
