@@ -630,7 +630,7 @@ label bridge(candidate='joe'):
             "Good":
                 m "She's great."
                 b "That's nice to hear."
-                b "Get prepared for the net candidate."
+                b "Get prepared for the next candidate."
 
                 hide boss happy close
                 with dissolve
