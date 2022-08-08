@@ -341,6 +341,7 @@ label lps:
 
         "one minute passed..."
         "two minutes passed..."
+        "three minutes passed..."
 
         show emily general close at left
         with dissolve
