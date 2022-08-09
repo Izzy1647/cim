@@ -354,9 +354,9 @@ label decision:
         "Select the factor that you think matters the most in the menu."
 
         menu:
-            "Appearence: he looks like a good engineer!" if decision == 'joe' or decision == 'adam':
+            "Appearance: he looks like a good engineer!" if decision == 'joe' or decision == 'adam':
                 $ reason = 'appearance'
-            "Appearence: she's really appealing!" if decision == 'emily':
+            "Appearance: she looks like a good engineer!" if decision == 'emily':
                 $ reason = 'appearance'
             "Coding ability: bug free code during the interview":
                 $ reason = 'ability'
