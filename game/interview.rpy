@@ -364,8 +364,8 @@ label decision:
                 $ reason = 'vibe'
             "Gender: I need a female engineer in my group" if decision == 'emily':
                 $ reason = 'gender'
-            "Gender: male engineers are more capable" if decision == 'joe' or decision == 'adam':
-                $ reason = 'gender'
+            # "Gender: male engineers are more capable" if decision == 'joe' or decision == 'adam':
+            #     $ reason = 'gender'
         
         # post plots & educational chapter based on player's decision
         
@@ -446,6 +446,10 @@ label decision:
 
             "In IT industry sometimes it can even be the opposite: applicants with 'nerdy' appearance may be considered as better engineers."
 
+            "Also, research shows that gender may also has an impact on decision making."
+
+            call sexrole
+
             menu:
                 "Would you like to make another pick on who to hire?"
                 "Yes":
@@ -456,43 +460,7 @@ label decision:
                     
         
         if reason == 'gender':
-            scene bg sex roles
-            with fadehold
-
-            "Careful, {b}Sex Role Stereotypes{/b} may have affected your judgment."
-            "Lots of reaserches have discussed sex role stereotypes during interview."
-            
-            show sex1 at topleft
-            with dissolve
-
-            ""
-
-            show sex2 at topright
-            with dissolve
-
-            ""
-
-            show sex3 at top
-            with dissolve
-
-            ""
-
-            "And so many other researches..."
-
-            scene bg kin
-            with fadehold
-
-            "Traditionally people tend to believe that compared with men, women are more suitable for jobs like nurse, flight attendent, kindergartner, etc."
-
-            scene bg se office
-            with fadehold
-
-            "Whereas in IT industry, software engineer is recogized as a male-dominant job."
-            "When facing two almost equally capabale candidates, interviewers are likely to consider male as the better engineer."
-
-            "However on the other side, as there are not many female engineers in the industry, sometimes interviwers prefer female candidates as a means of balance."
-            "Cases indicate that some companies will even lower the bar for female candidates."
-            "Either way, it's not fair."
+            call sexrole
 
             menu:
                 "Would you like to make another pick on who to hire?"
@@ -684,8 +652,51 @@ label bridge(candidate='joe'):
 #         action Jump("ending")
 
 
+label sexrole:
+    scene bg sex roles
+    with fadehold
+
+    "{b}Sex Role Stereotypes{/b} can affect the judgment."
+    "Lots of reaserches have discussed sex role stereotypes during interview."
+    
+    show sex1 at topleft
+    with dissolve
+
+    ""
+
+    show sex2 at topright
+    with dissolve
+
+    ""
+
+    show sex3 at top
+    with dissolve
+
+    ""
+
+    "And so many other researches..."
+
+    scene bg kin
+    with fadehold
+
+    "Traditionally people tend to believe that compared with men, women are more suitable for jobs like nurse, flight attendent, kindergartner, etc."
+
+    scene bg se office
+    with fadehold
+
+    "Whereas in IT industry, software engineer is recogized as a male-dominant job."
+    "When facing two almost equally capabale candidates, interviewers are likely to consider male as the better engineer."
+
+    "However on the other side, as there are not many female engineers in the industry, sometimes interviwers prefer female candidates as a means of balance."
+    "Cases indicate that some companies will even lower the bar for female candidates."
+    "Either way, it's not fair."
+
+    return
+
+
 label game_ending:
     "For all literatures used in the game, please visit {a}url{/a} to see the list of reference and the full article."
-    "Game ending"
+    "This is the end of the game."
+    "If you want to check how othre players rate these candidates, visit {a=https://cim-analysis-fe.vercel.app}this website{/a}."
 
     $ MainMenu(confirm=False)()
