@@ -2,7 +2,7 @@ label emilyStory:
     scene black
     with dissolve
 
-    "Now it's time to look at emily's story behind the interview..."
+    "Emily's story behind the interview..."
 
     scene bg campus
     with fadehold

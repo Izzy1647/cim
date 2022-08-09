@@ -398,6 +398,27 @@ label decision:
                             jump game_ending
 
 
+        if reason == 'ability' and decision == 'joe' or decision == 'adam':
+            show bg code glass
+            with fadehold
+
+            "It's always reasonable to use coding ability as the main factor to determine who to hire."
+            "However, although it seems to be working fine, there are still downsides."
+            "As an example, let's see Emily's story."
+
+            call emilyStory
+
+            call emilyInWork
+
+            menu:
+                "Would you like to make another pick on who to hire?"
+                "Yes":
+                    $ isFirst = False
+                    jump decision_menu
+                "No":
+                    jump game_ending
+
+
         if reason == 'appearance':
             scene bg caution
             with fadehold
