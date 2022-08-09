@@ -398,7 +398,7 @@ label decision:
                             jump game_ending
 
 
-        if reason == 'ability' and decision == 'joe' or decision == 'adam':
+        if reason == 'ability' and (decision == 'joe' or decision == 'adam'):
             show bg code glass
             with fadehold
 
