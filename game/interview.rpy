@@ -24,7 +24,7 @@ label preInterview:
         interviews = ["interviewjoe", "interviewEmily", "interviewAdam"]
         renpy.random.shuffle(interviews)
         
-    call expression interviews[0]
+    call expression interviews[0] from _call_expression
 
     return
 
@@ -53,8 +53,10 @@ label interviewjoe:
     j "So... Where do we begin?"
 
     menu:
-        "Start with a brief self introduction":
+        "Start with a brief self introduction!":
             call selfintro(candidate='Joe') from _call_selfintro
+    
+    menu:
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
     
@@ -169,7 +171,7 @@ label postJoe:
 
     call bridge(candidate='joe') from _call_bridge
     
-    call expression interviews[idx + 1]
+    call expression interviews[idx + 1] from _call_expression_1
 
     return
     
@@ -203,7 +205,7 @@ label postEmily:
 
     call bridge(candidate='emily') from _call_bridge_1
 
-    call expression interviews[idx + 1]
+    call expression interviews[idx + 1] from _call_expression_2
 
     return
     
@@ -233,9 +235,9 @@ label postAdam:
     if idx == 2:
         jump ending
     
-    call bridge(candidate='adam')
+    call bridge(candidate='adam') from _call_bridge_2
 
-    call expression interviews[idx + 1]
+    call expression interviews[idx + 1] from _call_expression_3
 
     return
 
@@ -257,8 +259,11 @@ label interviewEmily:
     menu:
         "Start with a brief self introduction":
             call selfintro(candidate='Emily') from _call_selfintro_1
+    
+    menu:
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
+        
     
     return
 
@@ -284,9 +289,12 @@ label interviewAdam:
     menu:
         "Start with a brief self introduction":
             call selfintro(candidate='Adam') from _call_selfintro_2
+    
+    menu:
         "Bring on Fizzbuzz!":
             jump prefizzbuzz
     
+        
     return
 
 
@@ -343,7 +351,7 @@ label decision:
         hide adam general with dissolve
 
         if isFirst:
-            call send_data
+            call send_data from _call_send_data
 
         scene bg report
         with fadehold
@@ -370,7 +378,7 @@ label decision:
         # post plots & educational chapter based on player's decision
         
         if decision == 'emily' and reason == 'ability':
-            call emilyStory
+            call emilyStory from _call_emilyStory
 
             scene bg report
             with fadehold
@@ -387,7 +395,7 @@ label decision:
                     "It's always hard to give up a well-performing candidate like Emily."
                     "Let's take a look at how Emily performs in work."
 
-                    call emilyInWork
+                    call emilyInWork from _call_emilyInWork
 
                     menu:
                         "Would you like to make another pick on who to hire?"
@@ -406,9 +414,9 @@ label decision:
             "However, although it seems to be working fine, there are still downsides."
             "As an example, let's see Emily's story."
 
-            call emilyStory
+            call emilyStory from _call_emilyStory_1
 
-            call emilyInWork
+            call emilyInWork from _call_emilyInWork_1
 
             menu:
                 "Would you like to make another pick on who to hire?"
@@ -469,7 +477,7 @@ label decision:
 
             "Also, research shows that gender may also has an impact on decision making."
 
-            call sexrole
+            call sexrole from _call_sexrole
 
             menu:
                 "Would you like to make another pick on who to hire?"
@@ -481,7 +489,7 @@ label decision:
                     
         
         if reason == 'gender':
-            call sexrole
+            call sexrole from _call_sexrole_1
 
             menu:
                 "Would you like to make another pick on who to hire?"
