@@ -1,0 +1,58 @@
+* d68d83f Migration
+* d430a29 Interveiw flow update
+* 5de9b55 Bug fix
+* 704b098 Fix typo
+* b8f7b32 Complete explanatory chapter
+* dca378d Modify explanatory chapter structure
+* 63cfc6f FIx typo
+* beb3e03 Minor updates
+* 08959f2 Add analysis chapter on communication
+* 393a979 Control flow bug fix
+* f78e71b Add post interview analysis chapter
+* 560158e Minor updates in Emily's story
+* df268f3 Add Emily in work chapter
+* fbe039e Add emily background story
+* 4315946 Add pre-game uom logo page
+* 00be003 Random candidate order and backlog updates
+*   1ba8518 Merge branch 'master' of github.com:Izzy1647/job-sim
+|\  
+| * c06ab2d Update README.md
+* | fbe9b12 Experimental: bug fix
+|/  
+* 37759ec Add requests module & upload ingame data option
+* 3d5d1a7 Minor updates on game resources
+* 2d36b06 UI updates in report screen
+* 0f85aa3 Slight modification on main plot
+* a8d8468 Modify typing sound effect
+* 2622f1c An initial version of report screen
+* 0b601d7 Add time for player to read and evaluate the code
+* f7c942b Add solutions in pseudocode & py2pseudo converter
+* f39922a add solution in python
+* 2cd3979 👌finish adam lps
+* 5d6026a introduce adam
+* e29009b add typing audio🔊
+* 1d86b15 adapt multi programming language
+* d01f9b6 finish emily part
+* b48415f updates👊
+* 765966c ✍️working on emily
+* 509153c 👏introduing Emily
+* 7f423fe ⬆️finish joe lps
+* 7cab035 🔚finish joe's two sum part
+* 2070c6b updates
+* 8d65f29 restructure
+* f81b0dd 🎵music switch button
+* cc0376a 📝back on track
+* 84325fd Update README.md
+* cad1f63 interview updates
+* a8c705d interview process updates
+*   e8d1225 Merge branch 'master' of github.com:Izzy1647/job-sim
+|\  
+| * e64b372 Update README.md
+* | 655f67c interview chapter updates
+|/  
+* c882ca9 intro updates
+* 2a713ca Update README.md
+* c1d4d59 Create README.md
+* abfd3af updates in intro chapter
+* e3df6c5 upates in intro chapter
+* 33348fb init

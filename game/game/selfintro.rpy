@@ -14,8 +14,8 @@ label selfintro(candidate=''):
     
     if candidate == "Adam":
         a "Okay."
-        
-        play music "/audioadam-intro.mp3"
+
+        play music "/audio/adam-intro.mp3"
         "Adam speaking... Make sure you are not muted."
         "Press space if you want to skip. But don't."
         stop music
