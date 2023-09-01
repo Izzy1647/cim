@@ -2,4 +2,4 @@
 
 An interactive fiction game on coding interviews.
 
-Access: https://zhiyuzhou.itch.io/coding-interview-simulation
+Download the game: https://zhiyuzhou.itch.io/coding-interview-simulation
